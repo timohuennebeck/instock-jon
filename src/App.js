@@ -1,8 +1,9 @@
 import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WarehousesDetailsEdit from './pages/WarehousesDetailsEdit/WarehousesDetailsEdit';
 // import PageHeader from './components/PageHeader/PageHeader';
 // import WarehouseList from './pages/WarehouseList/WarehouseList';
-import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+// import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 // import InventoryList from './pages/InventoryList/InventoryList';
 // import InventoryDetail from './pages/InventoryDetail/InventoryDetail';
 
@@ -15,7 +16,8 @@ function App() {
           {/* <Route path='/' element={<WarehouseList />} />
           <Route path='/warehouses' element={<WarehouseList />} />
           <Route path='/inventory' element={<InventoryList />} /> */}
-          <Route path='/warehouses/:id' element={<WarehouseDetails />} />
+          {/* <Route path='/warehouses/:id' element={<WarehouseDetails />} /> */}
+          <Route path="warehouses/:id/edit" element={<WarehousesDetailsEdit />}/>
           {/* <Route part='inventory/:id' element={<InventoryDetail />} /> */}
         </Routes>
       </Router>
