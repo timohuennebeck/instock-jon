@@ -10,14 +10,14 @@ function App() {
   return (
     <div>
       <Router>
-        {/* <PageHeader /> */}
-        <Routes>
-          <Route path='/' element={<WarehouseList />} />
+        <PageHeader />
+        {/* <Routes>
+          <Route path='/' element={<WarehouseList />} /> */}
           {/* <Route path='/warehouses' element={<WarehouseList />} />
           <Route path='/inventory' element={<InventoryList />} />
           <Route path='/warehouses/:id' element={<WarehouseDetail />} />
           <Route part='inventory/:id' element={<InventoryDetail />} /> */}
-        </Routes>
+        {/* </Routes> */}
       </Router>
     </div>
   );
