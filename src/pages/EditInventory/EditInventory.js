@@ -9,15 +9,9 @@ export default function EditInventory() {
         <div className='editinv'>
             <div className='editinv__header'>
                 <Link to='/'>
-                    <img 
-                    src={ReturnArrow}
-                    className='editinv__header-img'
-                    alt='Go back arrow'
-                    />
+                    <img src={ReturnArrow} className='editinv__header-img' alt='Go back arrow' />
                 </Link>
-                <h1 className='editinv__title'>
-                    Edit Inventory Item
-                </h1>
+                <h1 className='editinv__title'>Edit Inventory Item</h1>
             </div>
             <div className='editinv__form'>
                 <EditInventoryForm />
