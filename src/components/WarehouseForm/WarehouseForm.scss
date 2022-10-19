@@ -3,17 +3,13 @@
 @use "../../styles/partials/reset" as *;
 
 .warehouse__form {
-
     @include tablet {
         display: flex;
         padding: 0;
         width: 50vw;
-
-        
     }
 
     &-search {
-   
         height: 36px;
         width: 100%;
         border-radius: 20px;
@@ -23,6 +19,7 @@
         background-image: url(../../assets/images/icons/search-24px.svg);
         background-repeat: no-repeat;
         background-position: right 5% bottom 50%;
+        margin-top: 1rem;
 
         &:focus{
             outline: none;//remove default outline
@@ -32,6 +29,7 @@
         @include tablet {
             height: 38px;
             margin-right: 1rem;
+            margin-top: 0;
             
         }
     }
