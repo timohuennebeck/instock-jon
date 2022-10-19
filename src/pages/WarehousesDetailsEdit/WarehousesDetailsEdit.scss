@@ -1,32 +1,51 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-
 .warehouse-edit {
-
     &__header {
         display: flex;
         gap: 12px;
         padding: 32px 24px;
+        border-bottom: 1px solid $sec-color-2;
     }
 
-    &__details-header, &__contact-header {
-        padding-bottom: 16px;
-    }
-
-    &__details, &__contact, &__buttons {
+    &__details {
         padding: 16px 24px;
-    }
 
-    &__details, &__contact {
-        border-top: 1px solid $sec-color-2;
+        @include tablet {
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        &-address {
+            padding-right: 24px;
+
+            @include tablet {
+                border-right: 1px solid $sec-color-2;
+            }
+        }
+
+        &-contact {
+            padding-left: 24px;
+        }
+
+        &-address,
+        &-contact {
+            @include tablet {
+                width: 100%;
+            }
+
+            &-header {
+                padding-bottom: 16px;
+            }
+        }
     }
 
     &__buttons {
+        padding: 16px 24px;
         display: flex;
         gap: 16px;
-        justify-content: center;
         background-color: $background-color-2;
     }
-
 }

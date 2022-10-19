@@ -13,19 +13,21 @@ function WarehousesDetailsEdit() {
                 </div>
 
                 <div className="warehouse-edit__details">
-                    <h2 className="warehouse-edit__details-header">Warehouse Details</h2>
-                    <InputField label="Warehouse Name" value="Placeholder" />
-                    <InputField label="Street Address" value="Placeholder" />
-                    <InputField label="City" value="Placeholder" />
-                    <InputField label="Country" value="Placeholder" />
-                </div>
+                    <div className="warehouse-edit__details-address">
+                        <h2 className="warehouse-edit__details-address-header">Warehouse Details</h2>
+                        <InputField label="Warehouse Name" value="Placeholder" />
+                        <InputField label="Street Address" value="Placeholder" />
+                        <InputField label="City" value="Placeholder" />
+                        <InputField label="Country" value="Placeholder" />
+                    </div>
 
-                <div className="warehouse-edit__contact">
-                    <h2 className="warehouse-edit__contact-header">Contact Details</h2>
-                    <InputField label="Contact Name" value="Placeholder" />
-                    <InputField label="Position" value="Placeholder" />
-                    <InputField label="Phone Number" value="Placeholder" />
-                    <InputField label="Email" value="Placeholder" />
+                    <div className="warehouse-edit__details-contact">
+                        <h2 className="warehouse-edit__details-contact-header">Contact Details</h2>
+                        <InputField label="Contact Name" value="Placeholder" />
+                        <InputField label="Position" value="Placeholder" />
+                        <InputField label="Phone Number" value="Placeholder" />
+                        <InputField label="Email" value="Placeholder" />
+                    </div>
                 </div>
 
                 <div className="warehouse-edit__buttons">
