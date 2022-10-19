@@ -9,12 +9,12 @@ import DeleteNotification from './components/DeleteNotification/DeleteNotificati
 // import InventoryList from './pages/InventoryList/InventoryList';
 // import InventoryDetail from './pages/InventoryDetail/InventoryDetail';
 import EditInventory from './pages/EditInventory/EditInventory';
+import DeleteInventory from './components/DeleteInventory/DeleteInventory';
 
 function App() {
   return (
     <div>
       <Router>
-        {/* <DeleteNotification /> */}
         {/* <PageHeader /> */}
         <Routes>
           {/* <Route path='/' element={<WarehouseList />} />
