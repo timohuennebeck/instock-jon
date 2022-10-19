@@ -1,4 +1,5 @@
 import "./WarehousesDetailsEdit.scss";
+import { Link } from "react-router-dom";
 import InputField from "../../components/InputField/InputField";
 import NavButton from "../../components/NavButton/NavButton";
 import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
@@ -8,13 +9,17 @@ function WarehousesDetailsEdit() {
         <>
             <article className="warehouse-edit">
                 <div className="warehouse-edit__header">
-                    <img src={ArrowBack} alt="" />
+                    <Link to="/warehouses/:id">
+                        <img src={ArrowBack} alt="" />
+                    </Link>
                     <h1>Edit Warehouse</h1>
                 </div>
 
                 <div className="warehouse-edit__details">
                     <div className="warehouse-edit__details-address">
-                        <h2 className="warehouse-edit__details-address-header">Warehouse Details</h2>
+                        <h2 className="warehouse-edit__details-address-header">
+                            Warehouse Details
+                        </h2>
                         <InputField label="Warehouse Name" value="Placeholder" />
                         <InputField label="Street Address" value="Placeholder" />
                         <InputField label="City" value="Placeholder" />
