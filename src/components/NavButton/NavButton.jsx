@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavButton({ link, content, backgroundColor, fontColor, border }) {
     return (
-        <Link to={link}>
+        <Link to={link} className="button-link">
             <button
                 className="button"
                 style={{

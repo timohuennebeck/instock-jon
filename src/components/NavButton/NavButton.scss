@@ -1,15 +1,28 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .button {
     border: none;
     border-radius: 1.25rem;
     color: $prim-color-3;
     font-weight: 600;
-    width: 8.6875rem;
+    width: 100%;
     height: 2.25rem;
     padding: 8px 0;
 
     &:hover {
         cursor: pointer;
+    }
+
+    @include tablet {
+        padding: 8px 16px;
+    }
+}
+
+.button-link {
+    width: 100%;
+
+    @include tablet {
+        width: auto;
     }
 }

@@ -47,5 +47,9 @@
         display: flex;
         gap: 16px;
         background-color: $background-color-2;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
     }
 }
