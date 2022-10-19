@@ -9,13 +9,13 @@ function WarehousesDetailsEdit() {
         <>
             <article className="warehouse-edit">
                 <div className="warehouse-edit__header">
-                    <Link to="/warehouses/:id">
-                        <img src={ArrowBack} alt="" />
+                    <Link to="/warehouses/:id" className="warehouse-edit__header-link">
+                        <img src={ArrowBack} alt="" className="warehouse-edit__header-img" />
                     </Link>
                     <h1>Edit Warehouse</h1>
                 </div>
 
-                <div className="warehouse-edit__details">
+                <form className="warehouse-edit__details">
                     <div className="warehouse-edit__details-address">
                         <h2 className="warehouse-edit__details-address-header">
                             Warehouse Details
@@ -33,7 +33,7 @@ function WarehousesDetailsEdit() {
                         <InputField label="Phone Number" value="Placeholder" />
                         <InputField label="Email" value="Placeholder" />
                     </div>
-                </div>
+                </form>
 
                 <div className="warehouse-edit__buttons">
                     <NavButton
