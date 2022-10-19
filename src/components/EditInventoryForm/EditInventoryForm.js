@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 // import ErrorSign from '../../assets/images/icons/error-24px.svg';
-
+import './EditInventoryForm.scss';
 
 export default function EditInventoryForm() {
     return (

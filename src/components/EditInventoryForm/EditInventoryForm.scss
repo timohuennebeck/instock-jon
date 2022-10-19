@@ -1,0 +1,65 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.editform {
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__title {
+        padding: 1rem;
+    }
+
+    &__label {
+        font-weight: 600;
+        padding: 0rem 1rem;
+        @include tablet {
+            padding-top: 1rem;
+        }
+    }
+
+    &__input {
+        border-radius: 1.25rem;
+        height: 2.25rem;
+        margin: auto;
+        margin-bottom: 1rem;
+        width: 90%;
+        border: 0.063rem solid #BDC5D5;
+
+        @include tablet {
+            margin-bottom: 0;
+        }
+    }
+
+
+
+    &__available {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+}
