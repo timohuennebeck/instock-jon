@@ -9,13 +9,14 @@ import WarehousesDetailsAdd from './pages/WarehouseDetailsAdd/WarehousesDetailsA
 // import InventoryList from './pages/InventoryList/InventoryList';
 // import InventoryDetail from './pages/InventoryDetail/InventoryDetail';
 import EditInventory from './pages/EditInventory/EditInventory';
+import DeleteInventory from './components/DeleteInventory/DeleteInventory';
 import AddInventory from './pages/AddInventory/AddInventory';
+
 
 function App() {
   return (
     <div>
       <Router>
-        {/* <DeleteNotification /> */}
         {/* <PageHeader /> */}
         <Routes>
           {/* <Route path='/' element={<WarehouseList />} /> */}
