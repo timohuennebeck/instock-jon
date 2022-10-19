@@ -1,6 +1,8 @@
 import "./InputField.scss";
 
-function InputField({ label, placeholder, value, name }) {
+function InputField({ label, placeholder, value, name, errors }) {
+    const isError = errors.indexOf(name) > -1;
+    console.log(isError);
     return (
         <>
             <div className="input-field">
