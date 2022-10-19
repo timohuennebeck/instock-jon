@@ -5,9 +5,9 @@ export default function WarehouseListHeader (){
         <div className='warehouse__list-header'>
             <p className='p-small warehouse__list-header-title'>WAREHOUSE</p>
             <p className='p-small warehouse__list-header-title'>ADDRESS</p>
-            <p className='p-small warehouse__list-header-title'>CONTACT NAME</p>
-            <p className='p-small warehouse__list-header-title'>CONTACT INFORMATION</p>
-            <p className='p-small warehouse__list-header-title'>ACTIONS</p>
+            <p className='p-small warehouse__list-header-title warehouse__list-header-title--contact'>CONTACT NAME</p>
+            <p className='p-small warehouse__list-header-title warehouse__list-header-title--info'>CONTACT INFORMATION</p>
+            <p className='p-small warehouse__list-header-title warehouse__list-header-title--actions'>ACTIONS</p>
         </div>
     )
 }

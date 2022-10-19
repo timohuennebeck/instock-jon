@@ -12,6 +12,9 @@
     flex-wrap: wrap;
     @include tablet {
         flex-wrap: nowrap;
+        justify-content: flex-start;///
+        
+
     }
   
 
@@ -22,18 +25,26 @@
         width: 48%;
    
         @include tablet {
-            flex-direction: row;       
+            flex-direction: row; 
+            gap: 5vw;
+            margin-right: 5vw;
+            // justify-content: flex-start;///
+            width: auto;////
+
         }
+
+        
         
     }
 
     &__tile {
         padding-top: 1rem;
 
-        &--contact {
+        &--contact-info {
             @include tablet {
                 display: flex;
                 flex-direction: column;
+                
             }
         }
     
@@ -49,6 +60,19 @@
 
     &__content {
         padding-top: 4px;
+        width: 90px;
+
+        &--contact {
+            @include tablet {
+                width: 130px;
+            }
+        }
+
+        &--contact-info {
+            @include tablet {
+                width: 170px;
+            }
+        }
     }
 
    

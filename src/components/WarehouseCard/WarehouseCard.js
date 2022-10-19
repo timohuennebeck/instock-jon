@@ -5,7 +5,7 @@ import editIcon from '../../assets/images/icons/edit-24px.svg'
 export default function WarehouseCard() {
     return (
         <div className='warehouse-card'>
-            <div className='warehouse-card__container'>
+            <div className='warehouse-card__container '>
                 <div className='warehouse-card__tile'>
                     <p className='p-small warehouse-card__title'>WAREHOUSE</p>
                     <p className='p-medium warehouse-card__content warehouse-card__name'>Manhattan</p>
@@ -19,12 +19,12 @@ export default function WarehouseCard() {
             <div className='warehouse-card__container'>
                 <div className='warehouse-card__tile'>
                     <p className='p-small warehouse-card__title'>CONTACT NAME</p>
-                    <p className='p-medium  warehouse-card__content '>Parmin Aujla</p>
+                    <p className='p-medium  warehouse-card__content warehouse-card__content--contact'>Parmin Aujla</p>
                 </div>
-                <div className='warehouse-card__tile warehouse-card__tile--contact'>
+                <div className='warehouse-card__tile warehouse-card__tile--contact-info'>
                     <p className='p-small warehouse-card__title'>CONTACT INFORMATION</p>
-                    <p className='p-medium  warehouse-card__content'>+1(629)555-0129</p>
-                    <p className='p-medium  warehouse-card__content'>paujla@instock.com</p>
+                    <p className='p-medium  warehouse-card__content  warehouse-card__content--contact-info'>+1(629)555-0129</p>
+                    <p className='p-medium  warehouse-card__content  warehouse-card__content--contact-info'>paujla@instock.com</p>
                 </div>
             </div>
             <div className='warehouse-card__icons-container'>

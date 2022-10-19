@@ -7,9 +7,10 @@
 
     @include tablet {
         display: flex;
+        gap: 5vw; 
         width: 100%;
         padding: 0 1rem;
-        justify-content: space-between;
+        // justify-content: space-between;
     }
 
     &-title {
@@ -18,10 +19,21 @@
         background-image: url('../../assets/images/icons/sort-24px.svg');
         background-repeat: no-repeat;
         background-position: right;
-        padding-right: 1.5rem;
+        // padding-right: 1.5rem;
         background-size: 15px;
+        width: 90px;
 
-        &--action {
+        &--contact {
+            width: 130px;
+        }
+
+        &--info {
+            width:170px ;
+        }
+     
+        
+
+        &--actions {
             background-image: none;
         }
 
