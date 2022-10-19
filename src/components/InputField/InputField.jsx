@@ -4,7 +4,7 @@ function InputField({ label, placeholder, value }) {
     return (
         <>
             <div className="input-field">
-                <label className="input-field__label">{label}</label>
+                <h3 className="input-field__label">{label}</h3>
                 <input className="input-field__value" value={value} placeholder={placeholder} />
             </div>
         </>

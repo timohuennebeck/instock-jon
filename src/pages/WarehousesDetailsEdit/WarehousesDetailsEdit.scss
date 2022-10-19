@@ -10,6 +10,10 @@
         padding: 32px 24px;
     }
 
+    &__details-header, &__contact-header {
+        padding-bottom: 16px;
+    }
+
     &__details, &__contact, &__buttons {
         padding: 16px 24px;
     }
