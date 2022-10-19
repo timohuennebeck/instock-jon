@@ -8,8 +8,10 @@ import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 function WarehousesDetailsAdd() {
     const formValues = useRef();
 
-    const handleSubmit = () => {
-        console.log(formValues.current.contactName.value);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formValues.current.position.value);
+
     };
 
     return (
@@ -35,15 +37,15 @@ function WarehousesDetailsAdd() {
                             placeholder="Street Address"
                             name="streetAddress"
                         />
-                        <InputField 
-                            label="City" 
-                            placeholder="City" 
-                            name="city" 
+                        <InputField
+                            label="City"
+                            placeholder="City"
+                            name="city"
                         />
-                        <InputField 
-                            label="Country" 
-                            placeholder="Country" 
-                            name="country" 
+                        <InputField
+                            label="Country"
+                            placeholder="Country"
+                            name="country"
                         />
                     </div>
 
@@ -54,20 +56,20 @@ function WarehousesDetailsAdd() {
                             placeholder="Contact Name"
                             name="contactName"
                         />
-                        <InputField 
-                            label="Position" 
-                            placeholder="Position" 
-                            name="position" 
+                        <InputField
+                            label="Position"
+                            placeholder="Position"
+                            name="position"
                         />
                         <InputField
                             label="Phone Number"
                             placeholder="Phone Number"
                             name="phoneNumber"
                         />
-                        <InputField 
-                            label="Email" 
-                            placeholder="Email" 
-                            name="email" 
+                        <InputField
+                            label="Email"
+                            placeholder="Email"
+                            name="email"
                         />
                     </div>
                 </form>
