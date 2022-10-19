@@ -1,7 +1,7 @@
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PageHeader from './components/PageHeader/PageHeader';
-// import WarehouseList from './pages/WarehouseList/WarehouseList';
+// import PageHeader from './components/PageHeader/PageHeader';
+import WarehouseList from './components/WarehouseList/WarehouseList';
 // import WarehouseDetail from './pages/WarehouseDetail/WarehouseDetail';
 // import InventoryList from './pages/InventoryList/InventoryList';
 // import InventoryDetail from './pages/InventoryDetail/InventoryDetail';

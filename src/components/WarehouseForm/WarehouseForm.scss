@@ -1,0 +1,56 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/reset" as *;
+
+.warehouse__form {
+    @include tablet {
+        display: flex;
+        padding: 0;
+        width: 50vw;
+    }
+
+    &-search {
+        height: 36px;
+        width: 100%;
+        border-radius: 20px;
+        resize: none;
+        padding: 8px 16px 0 16px;
+        border: $sec-color-2 1px solid;
+        background-image: url(../../assets/images/icons/search-24px.svg);
+        background-repeat: no-repeat;
+        background-position: right 5% bottom 50%;
+        margin-top: 1rem;
+
+        &:focus{
+            outline: none;//remove default outline
+            border: $prim-color-2 1px solid;
+        }
+
+        @include tablet {
+            height: 38px;
+            margin-right: 1rem;
+            margin-top: 0;
+            
+        }
+    }
+
+    &-button {
+        margin: 1rem 0;
+        width: 100%;
+        border-radius: 20px;
+        height: 36px;
+        border: none;
+        background-color: $prim-color-2;
+        color:$prim-color-3 ;
+
+        &:hover {
+            background-color: $background-color-1;
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin: 0;
+            height: 38px;
+        }
+    }
+}
