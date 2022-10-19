@@ -1,6 +1,6 @@
 import "./WarehousesDetailsAdd.scss";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import InputField from "../../components/InputField/InputField";
 import NavButton from "../../components/NavButton/NavButton";
 import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
@@ -8,10 +8,46 @@ import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 function WarehousesDetailsAdd() {
     const formValues = useRef();
 
+    const [errors, setErrors] = useState([]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formValues.current.position.value);
 
+        const errors = [];
+
+        if (!formValues.current.warehouseName.value) {
+            errors.push("warehouseName");
+        } 
+
+        if (!formValues.current.streetAddress.value) {
+            errors.push("streetAddress");
+        } 
+
+        if (!formValues.current.city.value) {
+            errors.push("city");
+        } 
+
+        if (!formValues.current.country.value) {
+            errors.push("country");
+        } 
+
+        if (!formValues.current.contactName.value) {
+            errors.push("contactName");
+        } 
+
+        if (!formValues.current.position.value) {
+            errors.push("position");
+        } 
+
+        if (!formValues.current.phoneNumber.value) {
+            errors.push("phoneNumber");
+        } 
+
+        if (!formValues.current.email.value) {
+            errors.push("email");
+        } 
+
+        setErrors(errors)
     };
 
     return (
@@ -31,21 +67,25 @@ function WarehousesDetailsAdd() {
                             label="Warehouse Name"
                             placeholder="Warehouse Name"
                             name="warehouseName"
+                            errors={errors}
                         />
                         <InputField
                             label="Street Address"
                             placeholder="Street Address"
                             name="streetAddress"
+                            errors={errors}
                         />
                         <InputField
                             label="City"
                             placeholder="City"
                             name="city"
+                            errors={errors}
                         />
                         <InputField
                             label="Country"
                             placeholder="Country"
                             name="country"
+                            errors={errors}
                         />
                     </div>
 
@@ -55,21 +95,25 @@ function WarehousesDetailsAdd() {
                             label="Contact Name"
                             placeholder="Contact Name"
                             name="contactName"
+                            errors={errors}
                         />
                         <InputField
                             label="Position"
                             placeholder="Position"
                             name="position"
+                            errors={errors}
                         />
                         <InputField
                             label="Phone Number"
                             placeholder="Phone Number"
                             name="phoneNumber"
+                            errors={errors}
                         />
                         <InputField
                             label="Email"
                             placeholder="Email"
                             name="email"
+                            errors={errors}
                         />
                     </div>
                 </form>
