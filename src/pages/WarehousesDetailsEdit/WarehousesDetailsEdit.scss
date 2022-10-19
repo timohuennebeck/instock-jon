@@ -1,6 +1,28 @@
+@use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
 
 .warehouse-edit {
-    padding: 24px;
+
+    &__header {
+        display: flex;
+        gap: 12px;
+        padding: 32px 24px;
+    }
+
+    &__details, &__contact, &__buttons {
+        padding: 16px 24px;
+    }
+
+    &__details, &__contact {
+        border-top: 1px solid $sec-color-2;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        background-color: $background-color-2;
+    }
+
 }
