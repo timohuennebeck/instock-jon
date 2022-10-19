@@ -2,7 +2,7 @@ import "./InputField.scss";
 
 function InputField({ label, placeholder, value, name, errors }) {
     const isError = errors.indexOf(name) > -1;
-    console.log(isError);
+
     return (
         <>
             <div className="input-field">
@@ -13,6 +13,14 @@ function InputField({ label, placeholder, value, name, errors }) {
                     placeholder={placeholder}
                     name={name}
                 />
+                {isError && (
+                    <>
+                        <div className="error">
+                            <p className="error__sign p-small">!</p>
+                            <p className="error__message p-small">This field is required</p>
+                        </div>
+                    </>
+                )}
             </div>
         </>
     );
