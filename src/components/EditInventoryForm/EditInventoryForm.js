@@ -1,8 +1,9 @@
 // import { useState } from 'react';
-// import ErrorSign from '../../assets/images/icons/error-24px.svg';
+import ErrorSign from '../../assets/images/icons/error-24px.svg';
 import './EditInventoryForm.scss';
 
 export default function EditInventoryForm() {
+    // const [errors, setErrors] = useState([]);
     return (
         <>
             <form className='editform'>
@@ -11,12 +12,12 @@ export default function EditInventoryForm() {
                         <h2 className='editform__title'>Item Details</h2>
                         <label className='editform__label' htmlFor='name'>Item Name</label>
                         <input
-                            className='editform__input'
+                            className='editform__input p-large'
                             type='text'
                             name='name'
                         // value={usestate.value(item-name)}
                         />
-                        {/* {usestate.value(item-name) === '' && (
+                        {/* {usestate.value(item-name) === '' && ( */}
                             <div className='editform__error'>
                                 <img
                                     className='editform__error-sign'
@@ -25,13 +26,14 @@ export default function EditInventoryForm() {
                                 />
                                 <p className='editform__error-text'>This field is required</p>
                             </div>
-                        )}; */}
+                        {/* )}; */}
                         <label className='editform__label' htmlFor='description'>Description</label>
                         <textarea
-                            className='editform__input-description'
+                            className='editform__input-description p-large'
                             type='text'
                             name='description'
-                        // value={usestate.value(description)}
+                            // errors={errors}
+                            // value={usestate.value(description)}
                         />
                         {/* {usestate.value(description) === '' && (
                             <div className='editform__error'>
@@ -44,14 +46,17 @@ export default function EditInventoryForm() {
                             </div>
                         )}; */}
                         <label className='editform__label' htmlFor='category'>Category</label>
-                        <select className='editform__dropdown' type='text' name='category'
+                        <select className='editform__dropdown'
+                            type='text'
+                            name='category'
+                            // placeholder='Please Select'
                         // value={useState.value(category)} 
                         >
-                            <option type='text'>Electronics</option>
-                            <option type='text'>Gear</option>
-                            <option type='text'>Apparel</option>
-                            <option type='text'>Accessories</option>
-                            <option type='text'>Health</option>
+                            <option type='text' value='Electronics'>Electronics</option>
+                            <option type='text' value='Gear'>Gear</option>
+                            <option type='text' value='Apparel'>Apparel</option>
+                            <option type='text' value='Accessories'>Accessories</option>
+                            <option type='text' value='Health'>Health</option>
                         </select>
                         {/* {usestate.value(category) === '' && (
                             <div className='editform__error'>
@@ -64,6 +69,7 @@ export default function EditInventoryForm() {
                             </div>
                         )}; */}
                     </div>
+                    <div className='editform__line'></div>
                     <div className='editform__available'>
                         <h2 className='editform__title'>Item Availability</h2>
                         <label className='editform__label'>Status</label>
@@ -72,13 +78,13 @@ export default function EditInventoryForm() {
                                 <input className='editform__status-radio' type='radio' name='status'
                                 // value={useState.value(status)}
                                 />
-                                <p className='editform__status-text'>In stock</p>
+                                <p className='editform__status-text p-large'>In stock</p>
                             </div>
                             <div className='editform__status-container'>
                                 <input className='editform__status-radio' type='radio' name='status'
                                 // value={useState.value(status)}
                                 />
-                                <p className='editform__status-text'>Out of stock</p>
+                                <p className='editform__status-text p-large'>Out of stock</p>
                             </div>
                         </div>
                         {/* {usestate.value(status) === '' && (

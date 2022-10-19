@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ReturnArrow from '../../assets/images/icons/arrow_back-24px.svg';
 import EditInventoryForm from '../../components/EditInventoryForm/EditInventoryForm';
+import './EditInventory.scss';
 
 export default function EditInventory() {
     return (
