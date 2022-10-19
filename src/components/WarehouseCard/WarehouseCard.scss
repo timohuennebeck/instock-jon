@@ -1,0 +1,79 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/reset" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse-card{
+    padding: 1rem;
+    padding-top: 0;
+    border-top: 1px solid $sec-color-2;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    @include tablet {
+        flex-wrap: nowrap;
+    }
+  
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 48%;
+   
+        @include tablet {
+            flex-direction: row;       
+        }
+        
+    }
+
+    &__tile {
+        padding-top: 1rem;
+
+        &--contact {
+            @include tablet {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    
+    }
+
+    &__title {
+        font-weight: 600;
+        color: $sec-color-1;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__content {
+        padding-top: 4px;
+    }
+
+   
+    &__name {
+        color: $prim-color-2;
+        font-weight: 600;
+        background-image: url('../../assets/images/icons/chevron_right-24px.svg');
+        background-repeat: no-repeat;
+        background-position: 75px 4px;
+        background-size: 20px;
+    }
+
+
+    &__icons-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1rem;
+        @include tablet {
+            width: 10%;
+        }
+    }
+
+    &__icons {
+        width: 22px;
+    }
+}
+
