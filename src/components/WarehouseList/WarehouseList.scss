@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/reset" as *;
+
+
+
+.warehouse {
+    margin: 1rem;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    @include tablet {
+        margin: 1.5rem;
+        
+    }
+
+}
