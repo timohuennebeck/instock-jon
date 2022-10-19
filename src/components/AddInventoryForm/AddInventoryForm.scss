@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-.editform {
+.addform {
     display: flex;
     flex-direction: column;
 
@@ -26,6 +26,7 @@
 
         @include tablet {
             width: 50%;
+
         }
     }
 
@@ -153,7 +154,7 @@
         height: 4.25rem;
         background-color: #F7F8F9;
         padding: 1rem;
-        margin: 1rem;
+        margin-top: 1rem;
 
         @include tablet {
             display: flex;
@@ -211,3 +212,4 @@
     }
 
 }
+
