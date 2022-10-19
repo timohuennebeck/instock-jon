@@ -8,6 +8,7 @@ import DeleteNotification from './components/DeleteNotification/DeleteNotificati
 // import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 // import InventoryList from './pages/InventoryList/InventoryList';
 // import InventoryDetail from './pages/InventoryDetail/InventoryDetail';
+import EditInventory from './pages/EditInventory/EditInventory';
 
 function App() {
   return (
