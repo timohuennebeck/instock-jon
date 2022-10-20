@@ -3,6 +3,9 @@
 @use "../../styles/partials/reset" as *;
 
 .warehouse__form {
+    
+    
+
     @include tablet {
         display: flex;
         padding: 0;
@@ -48,6 +51,7 @@
         border: none;
         background-color: $prim-color-2;
         color:$prim-color-3 ;
+        
 
         &:hover {
             background-color: $background-color-1;
