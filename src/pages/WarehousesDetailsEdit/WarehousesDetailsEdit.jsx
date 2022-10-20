@@ -1,7 +1,7 @@
 import "./WarehousesDetailsEdit.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import InputField from "../../components/InputField/InputField";
+import InputFieldNoError from "../../components/InputFieldNoError/InputFieldNoError";
 import NavButton from "../../components/NavButton/NavButton";
 import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 import { useEffect, useState } from "react";
@@ -11,9 +11,10 @@ function WarehousesDetailsEdit() {
     const { id } = useParams();
 
     const [userInput, setUserInput] = useState([]);
+    console.log(userInput);
 
     const handleChange = (e) => {
-        setUserInput({ [e.target.name]: e.target.value });
+        setUserInput({...userInput, [e.target.name]: e.target.value });
     };
 
     useEffect(() => {
@@ -28,12 +29,10 @@ function WarehousesDetailsEdit() {
     }, []);
 
     const newData = () => {
-        axios
-            .put(`http://localhost:8080/warehouses/${id}`, userInput)
-            .then(() => {
-                console.log("Data has been sent!");
-            })
-    }
+        axios.put(`http://localhost:8080/warehouses/${id}`, userInput).then(() => {
+            console.log("Data has been sent!");
+        });
+    };
 
     if (!userInput) {
         return <p>Loading...</p>;
@@ -55,21 +54,22 @@ function WarehousesDetailsEdit() {
                             Warehouse Details
                         </h2>
 
-                        <InputField
+                        <InputFieldNoError
                             label="Warehouse Name"
                             value={userInput.name}
                             onChange={handleChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Street Address"
                             value={userInput.address}
                             onChange={handleChange}
                         />
-                        <InputField label="City" 
-                            value={userInput.city} 
-                            onChange={handleChange} 
+                        <InputFieldNoError
+                            label="City"
+                            value={userInput.city}
+                            onChange={handleChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Country"
                             value={userInput.country}
                             onChange={handleChange}
@@ -78,22 +78,22 @@ function WarehousesDetailsEdit() {
 
                     <div className="warehouse-edit__details-contact">
                         <h2 className="warehouse-edit__details-contact-header">Contact Details</h2>
-                        <InputField
+                        <InputFieldNoError
                             label="Contact Name"
                             value={userInput?.contact?.name}
                             onChange={handleChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Position"
                             value={userInput?.contact?.position}
                             onChange={handleChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Phone Number"
                             value={userInput?.contact?.phone}
                             onChange={handleChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Email"
                             value={userInput?.contact?.email}
                             onChange={handleChange}
@@ -108,11 +108,7 @@ function WarehousesDetailsEdit() {
                         fontColor="#5C667E"
                         border="1px solid #BDC5D5"
                     />
-                    <NavButton 
-                        content="Save" 
-                        backgroundColor="#2E66E5"
-                        onClick={newData}
-                     />
+                    <NavButton content="Save" backgroundColor="#2E66E5" onClick={newData} />
                 </div>
             </article>
         </>
