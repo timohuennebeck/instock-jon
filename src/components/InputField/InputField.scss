@@ -1,8 +1,8 @@
 @use "../../styles/partials/variables" as *;
 
 .input-field {
-    
-    &__label, &__value {
+    &__label,
+    &__value {
         display: block;
     }
 
@@ -16,5 +16,25 @@
         width: 100%;
         height: 36px;
         padding: 8px 16px;
+    }
+}
+
+.error {
+    display: flex;
+    gap: 4px;
+
+    &__sign {
+        color: $prim-color-3;
+        background-color: $support-color-2;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__message {
+        color: $support-color-2;
     }
 }

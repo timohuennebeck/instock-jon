@@ -1,6 +1,8 @@
 import "./WarehousesDetailsAdd.scss";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import InputField from "../../components/InputField/InputField";
 import NavButton from "../../components/NavButton/NavButton";
 import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
@@ -8,10 +10,80 @@ import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 function WarehousesDetailsAdd() {
     const formValues = useRef();
 
+    const [errors, setErrors] = useState([]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formValues.current.position.value);
 
+        const warehouseName = formValues.current.warehouseName.value;
+        const streetAddress = formValues.current.streetAddress.value;
+        const city = formValues.current.city.value;
+        const country = formValues.current.country.value;
+        const contactName = formValues.current.contactName.value;
+        const position = formValues.current.position.value;
+        const phoneNumber = formValues.current.phoneNumber.value;
+        const email = formValues.current.email.value;
+
+        const addWarehouseData = {
+            id: uuidv4(),
+            name: warehouseName,
+            address: streetAddress,
+            city: city,
+            country: country,
+            contact: {
+                name: contactName,
+                position: position,
+                phone: phoneNumber,
+                email: email,
+            },
+        };
+
+        const errors = [];
+
+        if (!warehouseName) {
+            errors.push("warehouseName");
+        }
+
+        if (!streetAddress) {
+            errors.push("streetAddress");
+        }
+
+        if (!city) {
+            errors.push("city");
+        }
+
+        if (!country) {
+            errors.push("country");
+        }
+
+        if (!contactName) {
+            errors.push("contactName");
+        }
+
+        if (!position) {
+            errors.push("position");
+        }
+
+        if (!phoneNumber) {
+            errors.push("phoneNumber");
+        }
+
+        if (!email) {
+            errors.push("email");
+        }
+
+        setErrors(errors);
+
+        if (errors.length === 0) {
+            axios
+                .post("http://localhost:8080/warehouses/add", addWarehouseData)
+                .then(() => {
+                    console.log("Data has been sent!");
+                })
+                .catch((err) => {
+                    console.log(err, "Error!");
+                });
+        }
     };
 
     return (
@@ -31,21 +103,20 @@ function WarehousesDetailsAdd() {
                             label="Warehouse Name"
                             placeholder="Warehouse Name"
                             name="warehouseName"
+                            errors={errors}
                         />
                         <InputField
                             label="Street Address"
                             placeholder="Street Address"
                             name="streetAddress"
+                            errors={errors}
                         />
-                        <InputField
-                            label="City"
-                            placeholder="City"
-                            name="city"
-                        />
+                        <InputField label="City" placeholder="City" name="city" errors={errors} />
                         <InputField
                             label="Country"
                             placeholder="Country"
                             name="country"
+                            errors={errors}
                         />
                     </div>
 
@@ -55,21 +126,25 @@ function WarehousesDetailsAdd() {
                             label="Contact Name"
                             placeholder="Contact Name"
                             name="contactName"
+                            errors={errors}
                         />
                         <InputField
                             label="Position"
                             placeholder="Position"
                             name="position"
+                            errors={errors}
                         />
                         <InputField
                             label="Phone Number"
                             placeholder="Phone Number"
                             name="phoneNumber"
+                            errors={errors}
                         />
                         <InputField
                             label="Email"
                             placeholder="Email"
                             name="email"
+                            errors={errors}
                         />
                     </div>
                 </form>
