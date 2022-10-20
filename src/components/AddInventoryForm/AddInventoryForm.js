@@ -1,133 +1,124 @@
-// import ErrorSign from '../../assets/images/icons/error-24px.svg';
+import ErrorSign from '../../assets/images/icons/error-24px.svg';
 import './AddInventoryForm.scss';
+import { useState, useRef } from "react";
+import axios from 'axios';
+import InputField from "../../components/InputField/InputField";
+import TextareaField from '../../components/TextareaField/TextareaField';
+import SelectField from '../../components/SelectCategoryField/SelectCategoryField';
+import SelectWareField from '../../components/SelectWareField/SelectWareField';
+import RadioField from '../../components/RadioField/RadioField';
 
 export default function AddInventoryForm() {
-    // const [errors, setErrors] = useState([]);
+    const formValues = useRef();
+    const [addInv, setAddInv] = useState([]);
+
+    const [errors, setErrors] = useState([]);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const errors = [];
+
+        if (!formValues.current.name.value) {
+            errors.push("name");
+        }
+
+        if (!formValues.current.description.value) {
+            errors.push("description");
+        }
+
+        if (!formValues.current.category.value) {
+            errors.push("category");
+        }
+
+        if (!formValues.current.status.value) {
+            errors.push("status");
+        }
+
+        if (!formValues.current.quantity.value) {
+            errors.push("quantity");
+        }
+
+        if (!formValues.current.warehouse.value) {
+            errors.push("warehouse");
+        }
+
+        setErrors(errors)
+
+        const form = event.target;
+
+        const addItemObj = {
+            name: form.name.value,
+            description: form.description.value,
+            category: form.category.value,
+            status: form.status.value,
+            quantity: form.quantity.value,
+            warehouse: form.warehouse.value
+        }
+
+        console.log(addInv);
+        console.log(addItemObj);
+
+        axios
+            .post('http://localhost:8080/inventory', addItemObj)
+            .then((resp) => {
+                setAddInv(addInv(resp.data));
+            })
+            .catch((error) => {
+                alert(error.resp.data);
+            })
+    }
+
     return (
         <>
-            <form className='addform'>
+            <form className='addform' onSubmit={handleSubmit} ref={formValues}>
                 <div className='addform__container'>
                     <div className='addform__details'>
                         <h2 className='addform__title'>Item Details</h2>
-                        <label className='addform__label' htmlFor='name'>Item Name</label>
-                        <input
-                            className='addform__input'
+                        <InputField
+                            label="Item Name"
+                            placeholder="Item Name"
                             type='text'
                             name='name'
-                        // value={usestate.value(item-name)}
+                            errors={errors}
                         />
-                        {/* {usestate.value(item-name) === '' && ( */}
-                            {/* <div className='addform__error'>
-                                <img
-                                    className='addform__error-sign'
-                                    src={ErrorSign}
-                                    alt='Red Error Sign for Incomplete Form'
-                                />
-                                <p className='addform__error-text'>This field is required</p>
-                            </div> */}
-                        {/* )}; */}
-                        <label className='addform__label' htmlFor='description'>Description</label>
-                        <textarea
-                            className='addform__input-description'
+                        <TextareaField
+                            label='Description'
                             type='text'
                             name='description'
-                            // errors={errors}
-                            // value={usestate.value(description)}
+                            errors={errors}
                         />
-                        {/* {usestate.value(description) === '' && (
-                            <div className='addform__error'>
-                                <img
-                                    className='addform__error-sign'
-                                    src={ErrorSign}
-                                    alt='Red Error Sign for Incomplete Form'
-                                />
-                                <p className='addform__error-text'>This field is required</p>
-                            </div>
-                        )}; */}
-                        <label className='addform__label' htmlFor='category'>Category</label>
-                        <select className='addform__dropdown'
+                        <SelectField
+                            label='Category'
                             type='text'
                             name='category'
-                            // placeholder='Please Select'
-                        // value={useState.value(category)} 
-                        >
-                            <option type='text' value='Electronics'>Electronics</option>
-                            <option type='text' value='Gear'>Gear</option>
-                            <option type='text' value='Apparel'>Apparel</option>
-                            <option type='text' value='Accessories'>Accessories</option>
-                            <option type='text' value='Health'>Health</option>
-                        </select>
-                        {/* {usestate.value(category) === '' && (
-                            <div className='addform__error'>
-                                <img
-                                    className='addform__error-sign'
-                                    src={ErrorSign}
-                                    alt='Red Error Sign for Incomplete Form'
-                                />
-                                <p className='addform__error-text'>This field is required</p>
-                            </div>
-                        )}; */}
+                            errors={errors}
+                        />
                     </div>
                     <div className='addform__line'></div>
                     <div className='addform__available'>
                         <h2 className='addform__title'>Item Availability</h2>
-                        <label className='addform__label'>Status</label>
-                        <div className='addform__status'>
-                            <div className='addform__status-container'>
-                                <input className='addform__status-radio' type='radio' name='status'
-                                // value={useState.value(status)}
-                                />
-                                <p className='addform__status-text'>In stock</p>
-                            </div>
-                            <div className='addform__status-container'>
-                                <input className='addform__status-radio' type='radio' name='status'
-                                // value={useState.value(status)}
-                                />
-                                <p className='addform__status-text'>Out of stock</p>
-                            </div>
+                        <div>
+                            <RadioField
+                                label='Status'
+                                type='radio'
+                                name='status'
+                                errors={errors}
+                            />
                         </div>
-                        {/* {usestate.value(status) === '' && (
-                            <div className='addform__error'>
-                                <img
-                                    className='addform__error-sign'
-                                    src={ErrorSign}
-                                    alt='Red Error Sign for Incomplete Form'
-                                />
-                                <p className='addform__error-text'>This field is required</p>
-                            </div>
-                        )}; */}
-                        <label className='addform__label' htmlFor='name'>Quantity</label>
-                        <input
-                            className='addform__input'
+                        <InputField
+                            label='Quantity'
                             type='number'
                             name='quantity'
                             placeholder='0'
-                        // value={usestate.value(item-name)}
+                            errors={errors}
                         />
-                        <label className='addform__label'>Warehouse</label>
-                        <select className='addform__dropdown' type='text' name='warehouse'
-                        // value={useState.value(warehouse)} 
-                        >
-                            <option type='text'>Please Select</option>
-                            <option type='text'>Manhattan</option>
-                            <option type='text'>Washington</option>
-                            <option type='text'>Jersey</option>
-                            <option type='text'>San Fran</option>
-                            <option type='text'>Santa Monica</option>
-                            <option type='text'>Seattle</option>
-                            <option type='text'>Miami</option>
-                            <option type='text'>Boston</option>
-                        </select>
-                        {/* {usestate.value(warehouse) === '' && (
-                            <div className='addform__error'>
-                                <img
-                                    className='addform__error-sign'
-                                    src={ErrorSign}
-                                    alt='Red Error Sign for Incomplete Form'
-                                />
-                                <p className='addform__error-text'>This field is required</p>
-                            </div>
-                        )}; */}
+                        <SelectWareField
+                            label='Warehouse'
+                            type='text'
+                            name='warehouse'
+                            errors={errors}
+                        />
                     </div>
                 </div>
                 <div className='addform__button'>
