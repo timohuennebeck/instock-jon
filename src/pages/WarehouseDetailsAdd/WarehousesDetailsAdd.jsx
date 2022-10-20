@@ -17,37 +17,37 @@ function WarehousesDetailsAdd() {
 
         if (!formValues.current.warehouseName.value) {
             errors.push("warehouseName");
-        } 
+        }
 
         if (!formValues.current.streetAddress.value) {
             errors.push("streetAddress");
-        } 
+        }
 
         if (!formValues.current.city.value) {
             errors.push("city");
-        } 
+        }
 
         if (!formValues.current.country.value) {
             errors.push("country");
-        } 
+        }
 
         if (!formValues.current.contactName.value) {
             errors.push("contactName");
-        } 
+        }
 
         if (!formValues.current.position.value) {
             errors.push("position");
-        } 
+        }
 
         if (!formValues.current.phoneNumber.value) {
             errors.push("phoneNumber");
-        } 
+        }
 
         if (!formValues.current.email.value) {
             errors.push("email");
-        } 
+        }
 
-        setErrors(errors)
+        setErrors(errors);
     };
 
     return (
@@ -75,12 +75,7 @@ function WarehousesDetailsAdd() {
                             name="streetAddress"
                             errors={errors}
                         />
-                        <InputField
-                            label="City"
-                            placeholder="City"
-                            name="city"
-                            errors={errors}
-                        />
+                        <InputField label="City" placeholder="City" name="city" errors={errors} />
                         <InputField
                             label="Country"
                             placeholder="Country"
