@@ -1,0 +1,46 @@
+@use "../../styles/partials/variables" as *;
+
+.select-field {
+    &__label,
+    &__value {
+        display: block;
+    }
+
+    &__label {
+        padding: 16px 0 4px 0;
+    }
+
+    &__value {
+        border: 1px solid $sec-color-2;
+        border-radius: 20px;
+        width: 100%;
+        height: 36px;
+        padding: 0rem 0.5rem;
+        margin: 0.25rem 0rem 1rem;
+        outline: none;
+
+        &:focus {
+            border: 0.125rem solid #2E66E5;
+        }
+    }
+}
+
+.error {
+    display: flex;
+    gap: 4px;
+
+    &__sign {
+        color: $prim-color-3;
+        background-color: $support-color-2;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__message {
+        color: $support-color-2;
+    }
+}
