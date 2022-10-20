@@ -22,12 +22,11 @@
     }
     
     &__header {
-        padding: 1.5rem;
+        padding: 2rem;
         padding-bottom: 1rem;
         border-bottom: 1px solid $sec-color-2;
 
         @include tablet {
-            padding: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
