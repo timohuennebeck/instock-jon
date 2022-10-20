@@ -6,13 +6,23 @@
 .warehouse-card{
     padding: 1.5rem;
     padding-top: 0;
-    border-top: 1px solid $sec-color-2;
+    border-bottom: 1px solid $sec-color-2;
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
+
+    &:hover{
+        background-color: rgba(46, 102, 229, 0.07)
+    }
+
     @include tablet {
+        padding: 0 2rem;
         flex-wrap: nowrap;
-        justify-content: flex-start;///
+        justify-content: flex-start;
+    }
+
+    @include desktop {
+        padding: 0 2.5rem;
     }
   
 
@@ -24,11 +34,9 @@
    
         @include tablet {
             flex-direction: row; 
-            gap: 5vw;
-            margin-right: 5vw;
-            // justify-content: flex-start;///
-            width: auto;////
-
+            gap: calc(19.8vw - 114px);
+            margin-right: calc(19.8vw - 114px);;
+            width: auto;
         }
 
         
@@ -38,12 +46,12 @@
     &__tile {
         padding-top: 1rem;
 
-        &--contact-info {
-            @include tablet {
-                display: flex;
+        @include tablet {
+            display: flex;
                 flex-direction: column;
-                
-            }
+                padding-bottom: 1rem;
+                justify-content: center;
+            
         }
     
     }
@@ -60,6 +68,8 @@
         padding-top: 4px;
         width: 90px;
 
+        
+
         &--contact {
             @include tablet {
                 width: 130px;
@@ -72,6 +82,8 @@
                 width: 170px;
             }
         }
+
+       
     }
 
    
@@ -82,6 +94,18 @@
         background-repeat: no-repeat;
         background-position: 75px 4px;
         background-size: 20px;
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline $prim-color-2;
+        }
+    }
+
+    &__address {
+        @include desktop {
+            width: 180px;
+            
+
+        }
     }
 
 
@@ -91,7 +115,8 @@
         justify-content: space-between;
         padding-top: 1rem;
         @include tablet {
-            width: 10%;
+            width: 70px;
+            margin-left: -15px;
         }
     }
 

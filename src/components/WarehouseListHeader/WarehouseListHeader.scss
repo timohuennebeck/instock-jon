@@ -7,10 +7,14 @@
 
     @include tablet {
         display: flex;
-        gap: 5vw; 
+        gap: calc(19.8vw - 114px);
         width: 100%;
-        padding: 0 1rem;
-        // justify-content: space-between;
+        padding: 0 2rem;
+        background-color: $background-color-2;
+    }
+
+    @include desktop {
+        padding: 0 2.5rem;
     }
 
     &-title {
@@ -22,19 +26,31 @@
         // padding-right: 1.5rem;
         background-size: 15px;
         width: 90px;
+        padding: 11px 0;
 
         &--contact {
             width: 130px;
+            background-position: 80%;
         }
 
         &--info {
             width:170px ;
+            background-position: 85%;
+        }
+
+        &--address{
+            background-position: 75%;
+                @include desktop {
+                    width: 180px;
+                    background-position: 35%;
+                }
         }
      
         
 
         &--actions {
             background-image: none;
+            width: 70px;
         }
 
     }

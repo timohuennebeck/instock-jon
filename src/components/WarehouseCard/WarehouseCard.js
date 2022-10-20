@@ -12,7 +12,7 @@ export default function WarehouseCard() {
                 </div>
                 <div className='warehouse-card__tile'>
                     <p className='p-small warehouse-card__title'>ADDRESS</p>
-                    <p className='p-medium warehouse-card__content '>503 Broadway, New York, USA</p>
+                    <p className='p-medium warehouse-card__content warehouse-card__address'>503 Broadway, New York, USA</p>
                 </div>
             </div>
 

@@ -7,14 +7,16 @@
     margin: 1.5rem;
 
     @include tablet {
+        margin: 2rem;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
     }
 
-    @include tablet {
-        margin: 1.5rem;
-        
+    @include desktop {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
     }
+
 
 }
