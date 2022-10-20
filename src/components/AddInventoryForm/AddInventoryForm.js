@@ -3,13 +3,14 @@ import './AddInventoryForm.scss';
 import { useState, useRef } from "react";
 import axios from 'axios';
 import InputField from "../../components/InputField/InputField";
+import TextareaField from '../../components/TextareaField/TextareaField';
 
 export default function AddInventoryForm() {
     const formValues = useRef();
     const [addInv, setAddInv] = useState([]);
 
     const [errors, setErrors] = useState([]);
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -56,22 +57,21 @@ export default function AddInventoryForm() {
         console.log(addItemObj);
 
         axios
-            .post('http://localhost:8080/inventories', addItemObj)
+            .post('http://localhost:8080/inventory', addItemObj)
             .then((resp) => {
                 setAddInv(addInv(resp.data));
             })
             .catch((error) => {
                 alert(error.resp.data);
-            })
-
+        })
     }
+
     return (
         <>
-            <form className='addform' onSubmit={handleSubmit}>
+            <form className='addform' onSubmit={handleSubmit} ref={formValues}>
                 <div className='addform__container'>
                     <div className='addform__details'>
                         <h2 className='addform__title'>Item Details</h2>
-                        {/* <label className='addform__label' htmlFor='itemName'>Item Name</label> */}
                         <InputField
                             // className='addform__input'
                             label="Item Name"
@@ -90,30 +90,18 @@ export default function AddInventoryForm() {
                                 <p className='addform__error-text'>This field is required</p>
                             </div>
                         )}
-                        <label className='addform__label p-medium' htmlFor='description'>Description</label>
-                        <textarea
+                        <TextareaField
+                            label='Description'
                             className='addform__input-description'
                             type='text'
                             name='description'
                             errors={errors}
                         />
-                        {/* {usestate.value(description) === '' && (
-                            <div className='addform__error'>
-                                <img
-                                    className='addform__error-sign'
-                                    src={ErrorSign}
-                                    alt='Red Error Sign for Incomplete Form'
-                                />
-                                <p className='addform__error-text'>This field is required</p>
-                            </div>
-                        )}; */}
                         <label className='addform__label p-medium' htmlFor='category'>Category</label>
                         <select className='addform__dropdown'
                             type='text'
                             name='category'
                             errors={errors}
-                            placeholder='Please Select'
-                        // value={useState.value(category)} 
                         >
                             <option type="text" value=''>Please Select</option>
                             <option type='text' value='Electronics'>Electronics</option>
@@ -157,19 +145,9 @@ export default function AddInventoryForm() {
                                 <p className='addform__status-text'>Out of stock</p>
                             </div>
                         </div>
-                        {/* {usestate.value(status) === '' && (
-                            <div className='addform__error'>
-                                <img
-                                    className='addform__error-sign'
-                                    src={ErrorSign}
-                                    alt='Red Error Sign for Incomplete Form'
-                                />
-                                <p className='addform__error-text'>This field is required</p>
-                            </div>
-                        )}; */}
                         <label className='addform__label p-medium' htmlFor='name'>Quantity</label>
-                        <input
-                            className='addform__input'
+                        <InputField
+                            // className='addform__input'
                             type='number'
                             name='quantity'
                             placeholder='0'
