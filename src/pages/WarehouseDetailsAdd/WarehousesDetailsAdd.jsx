@@ -1,6 +1,8 @@
 import "./WarehousesDetailsAdd.scss";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import InputField from "../../components/InputField/InputField";
 import NavButton from "../../components/NavButton/NavButton";
 import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
@@ -13,41 +15,75 @@ function WarehousesDetailsAdd() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const warehouseName = formValues.current.warehouseName.value;
+        const streetAddress = formValues.current.streetAddress.value;
+        const city = formValues.current.city.value;
+        const country = formValues.current.country.value;
+        const contactName = formValues.current.contactName.value;
+        const position = formValues.current.position.value;
+        const phoneNumber = formValues.current.phoneNumber.value;
+        const email = formValues.current.email.value;
+
+        const addWarehouseData = {
+            id: uuidv4(),
+            name: warehouseName,
+            address: streetAddress,
+            city: city,
+            country: country,
+            contact: {
+                name: contactName,
+                position: position,
+                phone: phoneNumber,
+                email: email,
+            },
+        };
+
         const errors = [];
 
-        if (!formValues.current.warehouseName.value) {
+        if (!warehouseName) {
             errors.push("warehouseName");
         }
 
-        if (!formValues.current.streetAddress.value) {
+        if (!streetAddress) {
             errors.push("streetAddress");
         }
 
-        if (!formValues.current.city.value) {
+        if (!city) {
             errors.push("city");
         }
 
-        if (!formValues.current.country.value) {
+        if (!country) {
             errors.push("country");
         }
 
-        if (!formValues.current.contactName.value) {
+        if (!contactName) {
             errors.push("contactName");
         }
 
-        if (!formValues.current.position.value) {
+        if (!position) {
             errors.push("position");
         }
 
-        if (!formValues.current.phoneNumber.value) {
+        if (!phoneNumber) {
             errors.push("phoneNumber");
         }
 
-        if (!formValues.current.email.value) {
+        if (!email) {
             errors.push("email");
         }
 
         setErrors(errors);
+
+        if (errors.length === 0) {
+            axios
+                .post("http://localhost:8080/warehouses/add", addWarehouseData)
+                .then(() => {
+                    console.log("Data has been sent!");
+                })
+                .catch((err) => {
+                    console.log(err, "Error!");
+                });
+        }
     };
 
     return (
