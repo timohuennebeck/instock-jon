@@ -3,6 +3,7 @@ import deleteIcon from '../../assets/images/icons/delete_outline-24px.svg'
 import editIcon from '../../assets/images/icons/edit-24px.svg'
 
 export default function WarehouseCard() {
+
     return (
         <div className='warehouse-card'>
             <div className='warehouse-card__container '>

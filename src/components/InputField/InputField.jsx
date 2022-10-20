@@ -1,6 +1,6 @@
 import "./InputField.scss";
 
-function InputField({ label, placeholder, value, name, errors }) {
+function InputField({ label, placeholder, value, name, errors, onChange }) {
     const isError = errors.indexOf(name) > -1;
 
     return (
@@ -12,6 +12,7 @@ function InputField({ label, placeholder, value, name, errors }) {
                     value={value}
                     placeholder={placeholder}
                     name={name}
+                    onChange={onChange}
                 />
                 {isError && (
                     <>
