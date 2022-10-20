@@ -27,6 +27,14 @@ function WarehousesDetailsEdit() {
             });
     }, []);
 
+    const newData = () => {
+        axios
+            .put(`http://localhost:8080/warehouses/${id}`, userInput)
+            .then(() => {
+                console.log("Data has been sent!");
+            })
+    }
+
     if (!userInput) {
         return <p>Loading...</p>;
     }
@@ -100,7 +108,11 @@ function WarehousesDetailsEdit() {
                         fontColor="#5C667E"
                         border="1px solid #BDC5D5"
                     />
-                    <NavButton content="Save" backgroundColor="#2E66E5" />
+                    <NavButton 
+                        content="Save" 
+                        backgroundColor="#2E66E5"
+                        onClick={newData}
+                     />
                 </div>
             </article>
         </>
