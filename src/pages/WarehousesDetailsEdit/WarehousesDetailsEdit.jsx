@@ -16,16 +16,11 @@ function WarehousesDetailsEdit() {
         setUserInput({ [e.target.name]: e.target.value });
     };
 
-    console.log(userInput);
-
     useEffect(() => {
         axios
             .get(`http://localhost:8080/warehouses/${id}`)
             .then((resp) => {
-                setUserInput((recentInput) => ({
-                    ...recentInput,
-                    name: resp.data.warehouseDetails[0].name,
-                }));
+                setUserInput(resp?.data.warehouseDetails[0]);
             })
             .catch((err) => {
                 console.log(err, "Error!");
@@ -52,24 +47,49 @@ function WarehousesDetailsEdit() {
                             Warehouse Details
                         </h2>
 
-                        <input
-                            name="Street Address"
+                        <InputField
+                            label="Warehouse Name"
                             value={userInput.name}
                             onChange={handleChange}
                         />
-
-                        <InputField label="Warehouse Name" value="placeholder" />
-                        <InputField label="Street Address" value="placeholder" />
-                        <InputField label="City" value="placeholder" />
-                        <InputField label="Country" value="placeholder" />
+                        <InputField
+                            label="Street Address"
+                            value={userInput.address}
+                            onChange={handleChange}
+                        />
+                        <InputField label="City" 
+                            value={userInput.city} 
+                            onChange={handleChange} 
+                        />
+                        <InputField
+                            label="Country"
+                            value={userInput.country}
+                            onChange={handleChange}
+                        />
                     </div>
 
                     <div className="warehouse-edit__details-contact">
                         <h2 className="warehouse-edit__details-contact-header">Contact Details</h2>
-                        <InputField label="Contact Name" value="placeholder" />
-                        <InputField label="Position" value="placeholder" />
-                        <InputField label="Phone Number" value="placeholder" />
-                        <InputField label="Email" value="placeholder" />
+                        <InputField
+                            label="Contact Name"
+                            value={userInput?.contact?.name}
+                            onChange={handleChange}
+                        />
+                        <InputField
+                            label="Position"
+                            value={userInput?.contact?.position}
+                            onChange={handleChange}
+                        />
+                        <InputField
+                            label="Phone Number"
+                            value={userInput?.contact?.phone}
+                            onChange={handleChange}
+                        />
+                        <InputField
+                            label="Email"
+                            value={userInput?.contact?.email}
+                            onChange={handleChange}
+                        />
                     </div>
                 </form>
 
