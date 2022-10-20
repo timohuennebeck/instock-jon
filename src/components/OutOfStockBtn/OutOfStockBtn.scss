@@ -3,6 +3,7 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/variables" as *;
 
+// converted support-color-2 => RGBA value
 .out-stock__btn{
     background-color: rgba(201, 69, 21, 0.2);
     color: $support-color-2;

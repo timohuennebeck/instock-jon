@@ -4,8 +4,29 @@ import backArrow from "../../assets/images/icons/arrow_back-24px.svg";
 import editBtn from "../../assets/images/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
 import './WarehouseDetails.scss'
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function WarehouseDetails() {
+    const warehouseId = useParams();
+    const [warehouseData, setWarehouseData] = useState(null);
+    const [inventoryData, setInventoryData] = useState(null);
+
+    useEffect(()=>{
+        axios
+        .get(`http://localhost:8080/warehouses/${warehouseId.id}`).then((res)=>{
+            const warehouseDetails = res.data.warehouseDetails;
+            const inventoryDetails = res.data.inventoryData;
+            setWarehouseData(warehouseDetails)   
+            setInventoryData(inventoryDetails)           
+        })
+    }, []);
+    if( !warehouseData) { 
+      return <p> Loading... </p> }
+   
+     if( !inventoryData) { 
+       return <p> Loading... </p> }
   return (
     <>
       <div className="warehouse">
@@ -23,17 +44,16 @@ export default function WarehouseDetails() {
           </div>
         </div>
         <WarehouseDetailsHeader />
+        <WarehouseDetailsCard inventoryData={inventoryData}/>
+
         {/* list */}
-        <WarehouseDetailsCard />
-        <WarehouseDetailsCard />
-        {/* {warehouseData.map((warehouse) => (
+        {/* {inventoryData.map((inv) => (
             <WarehouseDetailsCard
-              key={warehouseData.id}
-              name={warehouseData.name}
-              address={warehouseData.address}
-              contactName={warehouseData.contact.name}
-              phone={warehouseData.contact.phone}
-              email={warehouseData.contact.email}
+              key={inv.id}
+              name={inv.itemName}
+              quantity={inv.quantity}
+              stockStatus={inv.status}
+
             />
           ))} */}
       </div>
