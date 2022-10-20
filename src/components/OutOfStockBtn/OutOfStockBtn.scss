@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/reset" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+
+.out-stock__btn{
+    background-color: rgba(201, 69, 21, 0.2);
+    color: $support-color-2;
+    border: none;
+    border-radius: 20px;
+    width: 4.925rem;
+    font-size: 11px;
+}

@@ -1,6 +1,8 @@
 import './WarehouseDetailsCard.scss'
 import deleteIcon from '../../assets/images/icons/delete_outline-24px.svg'
 import editIcon from '../../assets/images/icons/edit-24px.svg'
+import InStock from '../InStockBtn/InStockBtn'
+import OutStock from '../OutOfStockBtn/OutOfStockBtn'
 
 export default function WarehouseDetailsCard() {
     return (
@@ -19,7 +21,9 @@ export default function WarehouseDetailsCard() {
             <div className='warehouse-card__container'>
                 <div className='warehouse-card__tile'>
                     <p className='p-small warehouse-card__title'>STATUS</p>
-                    <p className='p-medium  warehouse-card__content '>Insert Status Tag</p>
+                    <p className='p-medium  warehouse-card__content '>
+                        <InStock/>
+                    </p>
                 </div>
                 <div className='warehouse-card__tile warehouse-card__tile--contact'>
                     <p className='p-small warehouse-card__title'>QTY</p>
