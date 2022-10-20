@@ -3,10 +3,15 @@
 @use "../../styles/partials/reset" as *;
 
 .warehouse__form {
+    
+    
+
     @include tablet {
         display: flex;
         padding: 0;
         width: 50vw;
+        justify-content: flex-end;
+        gap: 1rem;
     }
 
     &-search {
@@ -28,20 +33,25 @@
 
         @include tablet {
             height: 38px;
-            margin-right: 1rem;
             margin-top: 0;
+            width: 185px;
             
+        }
+
+        @include desktop {
+            width: 274px;
         }
     }
 
     &-button {
-        margin: 1rem 0;
+        margin-top: 1rem;
         width: 100%;
         border-radius: 20px;
         height: 36px;
         border: none;
         background-color: $prim-color-2;
         color:$prim-color-3 ;
+        
 
         &:hover {
             background-color: $background-color-1;
@@ -51,6 +61,7 @@
         @include tablet {
             margin: 0;
             height: 38px;
+            width: 168px;
         }
     }
 }

@@ -2,9 +2,11 @@ import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import WarehouseForm from "../WarehouseForm/WarehouseForm";
 import WarehouseListHeader from "../WarehouseListHeader/WarehouseListHeader";
 import "./WarehouseList.scss";
+import axios from "axios";
 
 export default function WarehouseList() {
   // props: warehousedata
+
 
   return (
     <>
