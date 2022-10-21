@@ -10,11 +10,17 @@ import { useParams } from "react-router-dom";
 function WarehousesDetailsEdit() {
     const { id } = useParams();
 
-    const [userInput, setUserInput] = useState([]);
-    console.log(userInput);
+    const [userInput, setUserInput] = useState(null);
 
     const handleChange = (e) => {
-        setUserInput({...userInput, [e.target.name]: e.target.value });
+        setUserInput({ ...userInput, [e.target.name]: e.target.value });
+    };
+
+    const handleContactChange = (e) => {
+        setUserInput({
+            ...userInput,
+            contact: { ...userInput.contact, [e.target.name]: e.target.value },
+        });
     };
 
     useEffect(() => {
@@ -56,21 +62,25 @@ function WarehousesDetailsEdit() {
 
                         <InputFieldNoError
                             label="Warehouse Name"
+                            name="name"
                             value={userInput.name}
                             onChange={handleChange}
                         />
                         <InputFieldNoError
                             label="Street Address"
+                            name="address"
                             value={userInput.address}
                             onChange={handleChange}
                         />
                         <InputFieldNoError
                             label="City"
+                            name="city"
                             value={userInput.city}
                             onChange={handleChange}
                         />
                         <InputFieldNoError
                             label="Country"
+                            name="country"
                             value={userInput.country}
                             onChange={handleChange}
                         />
@@ -80,23 +90,27 @@ function WarehousesDetailsEdit() {
                         <h2 className="warehouse-edit__details-contact-header">Contact Details</h2>
                         <InputFieldNoError
                             label="Contact Name"
+                            name="name"
                             value={userInput?.contact?.name}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
                         <InputFieldNoError
                             label="Position"
+                            name="position"
                             value={userInput?.contact?.position}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
                         <InputFieldNoError
                             label="Phone Number"
+                            name="phone"
                             value={userInput?.contact?.phone}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
                         <InputFieldNoError
                             label="Email"
+                            name="email"
                             value={userInput?.contact?.email}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
                     </div>
                 </form>
