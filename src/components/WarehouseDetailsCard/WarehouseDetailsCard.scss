@@ -13,8 +13,13 @@
   @include tablet {
     flex-wrap: nowrap;
   }
-
-  &__container {
+  &__link{
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  &__details-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,11 +27,20 @@
 
     @include tablet {
       flex-direction: row;
+      justify-content:space-between;
+      align-items: center;
+      width: 28%;
     }
   }
 
   &__tile {
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    @include tablet{
+      flex-direction: row;
+      align-items: center;
+    }
 
     &--contact {
       @include tablet {
@@ -43,27 +57,42 @@
       display: none;
     }
   }
+  &__name:hover{
+    text-decoration: underline solid $prim-color-2 1px;
+  }
+  &__chevron{
+    padding-top: 8px;
+  }
 
   &__content {
-    padding-top: 4px;
+    padding-top: 4px;  
   }
 
   &__name {
     color: $prim-color-2;
     font-weight: 600;
-    background-image: url("../../assets/images/icons/chevron_right-24px.svg");
-    background-repeat: no-repeat;
-    background-position: 75px 4px;
-    background-size: 20px;
+    // background-image: url("../../assets/images/icons/chevron_right-24px.svg");
+    // background-repeat: no-repeat;
+    // background-position: 85px 4px;
+    // background-size: 20px;
   }
 
   &__icons-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 1rem;
+    padding-right: 1rem;
     @include tablet {
-      width: 10%;
+      width: 22%;
+      justify-content: center;
+      gap: 1rem;
+    }
+    @include desktop {
+      width: 18%;
+      justify-content: center;
+      gap: 1rem;
     }
   }
 

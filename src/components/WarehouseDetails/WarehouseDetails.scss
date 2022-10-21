@@ -3,26 +3,95 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse{
-
-    &__header-container{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 1rem 1rem 1rem;
+.warehouse {
+  display: flex;
+  flex-direction: column;
+  &__header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 1rem;
+    border-bottom: 1px solid $sec-color-2;
+    @include tablet {
+      padding: 2rem 2rem 2rem 2rem;
     }
-    &__details-header{
-        display: flex;
+  }
+  &__details-header {
+    display: flex;
+  }
+  &__edit-container {
+    @include tablet {
+      padding-right: 1rem;
     }
-    &__edit-btn{
-        border-radius: 50%;
-        background-color: $prim-color-2;
-        border: none;
-        height: 36px;
-        width: 36px;
-        // fill: white;
+  }
+  &__edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $prim-color-2;
+    border: none;
+    height: 2.25rem;
+    width: 2.25rem;
+    // fill: white;
+    @include tablet {
+      width: 5rem;
+      height: 2.25rem;
+      border-radius: 1.25rem;
     }
-    &__edit{
-        filter: brightness(0) saturate(100%) invert(99%) sepia(4%) saturate(808%) hue-rotate(320deg) brightness(117%) contrast(100%);
+  }
+  &__edit {
+    filter: brightness(0) saturate(100%) invert(99%) sepia(4%) saturate(808%)
+      hue-rotate(320deg) brightness(117%) contrast(100%);
+    @include tablet {
+      padding-right: 4px;
     }
+  }
+  &__hidden {
+    display: none;
+    color: white;
+    @include tablet {
+      display: inline;
+    }
+  }
+  &__details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem 1rem 2rem;
+    }
+  }
+  &__details-header {
+    display: flex;
+    align-items: center;
+  }
+  &__back-arrow {
+    padding-top: 0.625rem;
+    padding-right: 0.5rem;
+  }
+  &__contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+    @include tablet {
+      padding: 1rem 4.5rem 0rem 1rem;
+    }
+  }
+  &__name {
+    @include tablet {
+      padding-right: 1rem;
+      padding-left: 4.5rem;
+      border-left: 1px solid $sec-color-2;
+    }
+  }
+  &__contact-info {
+    @include desktop {
+      padding-right: 10rem;
+    }
+  }
 }
