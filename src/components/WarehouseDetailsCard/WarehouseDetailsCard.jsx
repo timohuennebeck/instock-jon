@@ -9,8 +9,8 @@ import Modal from 'react-modal'
 import { Link } from 'react-router-dom'
 import DeleteInventory from '../DeleteInventory/DeleteInventory'
 
-export default function WarehouseDetailsCard({ inventoryData }) {
-    console.log(inventoryData)
+export default function WarehouseDetailsCard({ inv }) {
+
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
@@ -22,9 +22,7 @@ export default function WarehouseDetailsCard({ inventoryData }) {
     }
     
     Modal.setAppElement('.App');
-    return (
-        <>
-        {inventoryData?.map((inv)=>{
+
             return(
             <div className='warehouseD-card' key={inv.id}>
             <div className='warehouseD-card__details-container'>
@@ -62,7 +60,7 @@ export default function WarehouseDetailsCard({ inventoryData }) {
 
             <div className='warehouseD-card__icons-container-details'>
                 {/* <Link to={`/inventory/${inv.id}/delete`}> */}
-                    <button onClick={openModal}>
+                    <button onClick={openModal} className='warehouseD-card__delete-container'>
                         <img className='warehouseD-card__icons'src={deleteIcon} alt='Delete Inventory Item'></img>
                     </button>
   
@@ -83,8 +81,5 @@ export default function WarehouseDetailsCard({ inventoryData }) {
             </Modal>
         </div>
             )
-          })}  
-
-</>
-    )
+  
 }

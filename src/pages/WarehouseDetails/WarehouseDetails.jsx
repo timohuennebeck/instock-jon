@@ -84,7 +84,8 @@ export default function WarehouseDetails() {
       
        )})}
         <WarehouseDetailsHeader />
-        <WarehouseDetailsCard inventoryData={inventoryData} />
+        {inventoryData?.map((inv)=> <WarehouseDetailsCard inv={inv} key={inv.id}/> )}
+        {/* <WarehouseDetailsCard inventoryData={inventoryData} /> */}
         </div>
     </>
   );
