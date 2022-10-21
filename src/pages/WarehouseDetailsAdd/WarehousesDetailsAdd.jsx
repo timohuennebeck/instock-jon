@@ -158,7 +158,7 @@ function WarehousesDetailsAdd() {
                     <NavButton
                         content="+ Add Warehouse"
                         backgroundColor="#2E66E5"
-                        onSubmit={handleSubmit}
+                        onClick={handleSubmit}
                     />
                 </div>
             </article>

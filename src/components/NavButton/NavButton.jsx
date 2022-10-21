@@ -1,11 +1,11 @@
 import "./NavButton.scss";
 import { Link } from "react-router-dom";
 
-function NavButton({ link, content, backgroundColor, fontColor, border, onSubmit }) {
+function NavButton({ link, content, backgroundColor, fontColor, border, onClick }) {
     return (
         <Link to={link} className="button-link">
             <button
-                onClick={onSubmit}
+                onClick={onClick}
                 className="button"
                 style={{
                     backgroundColor: `${backgroundColor}`,
