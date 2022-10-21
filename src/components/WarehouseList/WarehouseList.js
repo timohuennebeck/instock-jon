@@ -2,9 +2,9 @@ import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import WarehouseForm from "../WarehouseForm/WarehouseForm";
 import WarehouseListHeader from "../WarehouseListHeader/WarehouseListHeader";
 import "./WarehouseList.scss";
-// import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function WarehouseList() {
+export default function WarehouseList({warehouseData}) {
   // props: warehousedata
 
 
@@ -16,19 +16,10 @@ export default function WarehouseList() {
         <WarehouseForm />
       </div>
       <WarehouseListHeader />
-      {/* list */}
-      <WarehouseCard />
-      <WarehouseCard />
-      {/* {warehouseData.map((warehouse) => (
-        <WarehouseListCard
-          key={warehouseData.id}
-          name={warehouseData.name}
-          address={warehouseData.address}
-          contactName={warehouseData.contact.name}
-          phone={warehouseData.contact.phone}
-          email={warehouseData.contact.email}
-        />
-      ))} */}
+      {warehouseData.map((warehouse) => (
+          <WarehouseCard key={warehouse.id} warehouse={warehouse}/>
+      ))}
+
     </div>
     </>
   );

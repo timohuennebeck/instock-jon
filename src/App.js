@@ -2,11 +2,7 @@ import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import WarehousesDetailsEdit from './pages/WarehousesDetailsEdit/WarehousesDetailsEdit';
 import WarehousesDetailsAdd from './pages/WarehouseDetailsAdd/WarehousesDetailsAdd';
-<<<<<<< HEAD
-import DeleteNotification from './components/DeleteNotification/DeleteNotification';
-=======
 // import DeleteNotification from './components/DeleteNotification/DeleteNotification';
->>>>>>> develop
 import PageHeader from './components/PageHeader/PageHeader';
 import Warehouse from './pages/Warehouse/Warehouse';
 // import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
@@ -24,8 +20,8 @@ function App() {
         {/* <DeleteNotification /> */}
         <PageHeader />
         <Routes>
-          {/* <Route path='/' element={<Warehouse />} />
-          <Route path='/warehouses' element={<Warehouse />} /> */}
+          <Route path='/' element={<Warehouse />} />
+          <Route path='/warehouses' element={<Warehouse />} />
           {/* <Route path='/inventory' element={<InventoryList />} /> */}
           {/* <Route path='/warehouses/:id' element={<WarehouseDetails />} /> */}
           <Route path="warehouses/:id/edit" element={<WarehousesDetailsEdit />}/>

@@ -1,7 +1,14 @@
 @use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/reset" as *;
-@use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/variables" as *;
+
+.delete-warehouse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    box-shadow: 0px 2px 5px 0 rgba(19, 24, 44, 0.1);
+}
 
 .warehouse-card{
     padding: 1.5rem;
@@ -119,6 +126,9 @@
 
     &__icons {
         width: 22px;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
