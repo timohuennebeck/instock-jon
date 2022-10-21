@@ -9,12 +9,8 @@ import { useParams } from "react-router-dom";
 
 function WarehousesDetailsEdit() {
     const { id } = useParams();
-<<<<<<< HEAD
-    const [userInput, setUserInput] = useState([]);
-=======
 
     const [userInput, setUserInput] = useState(null);
->>>>>>> develop
 
     const handleChange = (e) => {
         setUserInput({ ...userInput, [e.target.name]: e.target.value });
