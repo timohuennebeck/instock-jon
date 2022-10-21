@@ -20,16 +20,20 @@ function App() {
       <Router>
         {/* <DeleteNotification /> */}
         <PageHeader />
+        <div className='main__page'>
         <Routes>
           <Route path='/' element={<Warehouse />} />
           <Route path='/warehouses' element={<Warehouse />} />
           <Route path='/inventory' element={<InventoryList />} />
           <Route path='/warehouses/:id' element={<WarehouseDetails />} />
-          <Route path="warehouses/:id/delete" element={<Warehouse />}/>
-          <Route path="warehouses/:id/edit" element={<WarehousesDetailsEdit />}/>
-          <Route path="warehouses/add" element={<WarehousesDetailsAdd />}/>
-          <Route part='inventory/:id' element={<InventoryDetail />} />
+          <Route path="/warehouses/:id/delete" element={<Warehouse />}/>
+          <Route path="/warehouses/:id/edit" element={<WarehousesDetailsEdit />}/>
+          <Route path="/warehouses/add" element={<WarehousesDetailsAdd />}/>
+          <Route path='/inventory/:id' element={<InventoryDetail />} />
+          <Route path='/inventory/add' element={<AddInventory />} />
+          <Route path='/inventory/:id/edit' element={<EditInventory />} />
         </Routes>
+        </div>
         <PageFooter />
       </Router>
     </div>
