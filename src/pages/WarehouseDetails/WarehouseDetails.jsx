@@ -45,7 +45,7 @@ export default function WarehouseDetails() {
               <h1 className="warehouse__header__title">{warehouse.city}</h1>
             </div>
             <div className="warehouse__edit-container">
-              <Link to={`/warehouses/${warehouse.id}/edit`}>
+              <Link to={`/warehouse/${warehouse.id}/edit`}>
                 <button className="warehouse__edit-btn">
                   <img className="warehouse__edit" src={editBtn} />
                   <p className="p-medium warehouse__hidden">Edit</p>
