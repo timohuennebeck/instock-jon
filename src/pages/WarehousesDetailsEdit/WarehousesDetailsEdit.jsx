@@ -1,7 +1,7 @@
 import "./WarehousesDetailsEdit.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import InputField from "../../components/InputField/InputField";
+import InputFieldNoError from "../../components/InputFieldNoError/InputFieldNoError";
 import NavButton from "../../components/NavButton/NavButton";
 import ArrowBack from "../../assets/images/icons/arrow_back-24px.svg";
 import { useEffect, useState } from "react";
@@ -9,10 +9,22 @@ import { useParams } from "react-router-dom";
 
 function WarehousesDetailsEdit() {
     const { id } = useParams();
+<<<<<<< HEAD
     const [userInput, setUserInput] = useState([]);
+=======
+
+    const [userInput, setUserInput] = useState(null);
+>>>>>>> develop
 
     const handleChange = (e) => {
-        setUserInput({ [e.target.name]: e.target.value });
+        setUserInput({ ...userInput, [e.target.name]: e.target.value });
+    };
+
+    const handleContactChange = (e) => {
+        setUserInput({
+            ...userInput,
+            contact: { ...userInput.contact, [e.target.name]: e.target.value },
+        });
     };
 
     useEffect(() => {
@@ -27,12 +39,10 @@ function WarehousesDetailsEdit() {
     }, []);
 
     const newData = () => {
-        axios
-            .put(`http://localhost:8080/warehouses/${id}`, userInput)
-            .then(() => {
-                console.log("Data has been sent!");
-            })
-    }
+        axios.put(`http://localhost:8080/warehouses/${id}`, userInput).then(() => {
+            console.log("Data has been sent!");
+        });
+    };
 
     if (!userInput) {
         return <p>Loading...</p>;
@@ -54,22 +64,27 @@ function WarehousesDetailsEdit() {
                             Warehouse Details
                         </h2>
 
-                        <InputField
+                        <InputFieldNoError
                             label="Warehouse Name"
+                            name="name"
                             value={userInput.name}
                             onChange={handleChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Street Address"
+                            name="address"
                             value={userInput.address}
                             onChange={handleChange}
                         />
-                        <InputField label="City" 
-                            value={userInput.city} 
-                            onChange={handleChange} 
+                        <InputFieldNoError
+                            label="City"
+                            name="city"
+                            value={userInput.city}
+                            onChange={handleChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Country"
+                            name="country"
                             value={userInput.country}
                             onChange={handleChange}
                         />
@@ -77,25 +92,29 @@ function WarehousesDetailsEdit() {
 
                     <div className="warehouse-edit__details-contact">
                         <h2 className="warehouse-edit__details-contact-header">Contact Details</h2>
-                        <InputField
+                        <InputFieldNoError
                             label="Contact Name"
+                            name="name"
                             value={userInput?.contact?.name}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Position"
+                            name="position"
                             value={userInput?.contact?.position}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Phone Number"
+                            name="phone"
                             value={userInput?.contact?.phone}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
-                        <InputField
+                        <InputFieldNoError
                             label="Email"
+                            name="email"
                             value={userInput?.contact?.email}
-                            onChange={handleChange}
+                            onChange={handleContactChange}
                         />
                     </div>
                 </form>
@@ -107,11 +126,7 @@ function WarehousesDetailsEdit() {
                         fontColor="#5C667E"
                         border="1px solid #BDC5D5"
                     />
-                    <NavButton 
-                        content="Save" 
-                        backgroundColor="#2E66E5"
-                        onClick={newData}
-                     />
+                    <NavButton content="Save" backgroundColor="#2E66E5" onClick={newData} />
                 </div>
             </article>
         </>
