@@ -16,25 +16,9 @@ export default function EditInventoryForm() {
     const [populateData, setPopulateData] = useState(null);
 
     const [selected, setSelected] = useState(null);
-    console.log(selected);
-
-    const selectRadioButton = (e) => {
-        setSelected(e.target.value)
-    }
 
     const handleInputChange = (e) => {
         setPopulateData({ ...populateData, [e.target.name]: e.target.value });
-    };
-
-    const updateInvData = () => {
-        axios
-            .put(`http://localhost:8080/inventory/${id}`, populateData)
-            .then(() => {
-                console.log("Data has been sent!");
-            })
-            .catch((error) => {
-                alert(error.resp.data);
-            });
     };
 
     useEffect(() => {
@@ -42,7 +26,7 @@ export default function EditInventoryForm() {
             .get(`http://localhost:8080/inventory/${id}`)
             .then((resp) => {
                 setPopulateData(resp.data);
-                setSelected(resp.data.status)
+                setSelected(resp.data.status);
             })
             .catch((err) => {
                 console.log(err);
@@ -58,8 +42,8 @@ export default function EditInventoryForm() {
 
         const errors = [];
 
-        if (!formValues.current.name.value) {
-            errors.push("name");
+        if (!formValues.current.itemName.value) {
+            errors.push("itemName");
         }
 
         if (!formValues.current.description.value) {
@@ -74,11 +58,22 @@ export default function EditInventoryForm() {
             errors.push("status");
         }
 
-        if (!formValues.current.warehouse.value) {
-            errors.push("warehouse");
+        if (!formValues.current.warehouseName.value) {
+            errors.push("warehouseName");
         }
 
         setErrors(errors);
+
+        if (errors.length === 0) {
+            axios
+                .put(`http://localhost:8080/inventory/${id}`, populateData)
+                .then(() => {
+                    console.log("Data has been sent!");
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
     };
 
     return (
@@ -130,16 +125,18 @@ export default function EditInventoryForm() {
                                 className="radio-field__value"
                                 type="radio"
                                 value="In Stock"
-                                checked={selected === "In Stock"}
-                                onClick={selectRadioButton}
+                                name="status"
+                                checked={populateData.status === "In Stock"}
+                                onChange={handleInputChange}
                             />
                             <label>Out of Stock</label>
                             <input
                                 className="radio-field__value"
                                 type="radio"
                                 value="Out of Stock"
-                                checked={selected === "Out of Stock"}
-                                onClick={selectRadioButton}
+                                name="status"
+                                checked={populateData.status === "Out of Stock"}
+                                onChange={handleInputChange}
                             />
                         </div>
                         <SelectWareField
@@ -154,9 +151,7 @@ export default function EditInventoryForm() {
                 <div className="addform__button">
                     <div className="addform__button-container">
                         <button className="addform__button-cancel">Cancel</button>
-                        <button className="addform__button-save" onClick={updateInvData}>
-                            +Add Item
-                        </button>
+                        <button className="addform__button-save">+Add Item</button>
                     </div>
                 </div>
             </form>
