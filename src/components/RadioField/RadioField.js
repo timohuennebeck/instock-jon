@@ -15,27 +15,30 @@ function RadioField({ label, placeholder, value, name, errors, type }) {
                             placeholder={placeholder}
                             name={name}
                             type={type}
+                            errors={errors}
                         />
                         <p className='radio-field__status-text'>In stock</p>
                     </div>
                     <div className='radio-field__status-container'>
                         <input
-                            className='radio-field__status-radio'
-                            type='radio'
-                            name='status'
+                            className="radio-field__value"
+                            value={value}
+                            placeholder={placeholder}
+                            name={name}
+                            type={type}
                             errors={errors}
                         />
                         <p className='radio-field__status-text'>Out of stock</p>
                     </div>
                 </div>
-                {isError && (
+                {/* {isError && (
                     <>
                         <div className="error">
                             <p className="error__sign p-small">!</p>
                             <p className="error__message p-small">This field is required</p>
                         </div>
                     </>
-                )}
+                )} */}
             </div>
         </>
     );
