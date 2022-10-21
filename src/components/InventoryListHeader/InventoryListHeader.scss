@@ -1,0 +1,33 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/reset" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.inventory__list-header {
+    display: none;
+
+    @include tablet {
+        display: flex;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        justify-content: space-between;
+        background-color: $background-color-2;
+    }
+
+    &-title {
+        font-weight: 600;
+        color: $sec-color-1;
+        background-image: url('../../assets/images/icons/sort-24px.svg');
+        background-repeat: no-repeat;
+        background-position: right;
+        padding-right: 1.5rem;
+        background-size: 15px;
+
+
+
+    }
+    &-title:nth-child(6){
+        background-image: none;
+    }
+
+}
