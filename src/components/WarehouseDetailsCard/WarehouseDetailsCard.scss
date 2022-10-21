@@ -3,6 +3,10 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/variables" as *;
 
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  overflow: hidden;
+}
 .warehouseD-card {
   padding: 1rem;
   padding-top: 0;
@@ -12,6 +16,7 @@
   flex-wrap: wrap;
   @include tablet {
     flex-wrap: nowrap;
+    justify-content: flex-start;
   }
   &__link{
     color: inherit;
@@ -22,14 +27,18 @@
   &__details-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 48%;
+    // justify-content: space-between;
+    gap: 30px;
+    // width: 48%;
 
     @include tablet {
       flex-direction: row;
-      justify-content:space-between;
+      // justify-content:space-between;
+      // gap: 30px;
+      gap:calc(15.5vw - 96px);
+      margin-right: calc(15.5vw - 96px);
       align-items: center;
-      width: 28%;
+      // width: 28%;
     }
   }
 
@@ -39,7 +48,11 @@
     flex-direction: column;
     @include tablet{
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
+      width: 100px;
+      &--inventory{
+        width: 135px;
+  } 
     }
 
     &--contact {
@@ -55,6 +68,7 @@
     color: $sec-color-1;
     @include tablet {
       display: none;
+ 
     }
   }
   &__name:hover{
@@ -86,12 +100,11 @@
     padding-right: 1rem;
     @include tablet {
       width: 22%;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 1rem;
     }
     @include desktop {
       width: 18%;
-      justify-content: center;
       gap: 1rem;
     }
   }
@@ -99,4 +112,36 @@
   &__icons {
     width: 22px;
   }
+  &__modal {
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    position: absolute;
+
+    @include tablet {
+        max-width: 500px;
+        height: auto;
+        left: 40%;
+    }
+}
+
+&__modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+&__delete-container{
+  background-color: transparent;
+  border: none;
+}
+
 }

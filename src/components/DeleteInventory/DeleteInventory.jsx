@@ -1,35 +1,50 @@
 import "./DeleteInventory.scss";
 import NavButton from "../NavButton/NavButton";
 import CloseIcon from "../../assets/images/icons/close-24px.svg";
+import { useNavigate, Link } from "react-router-dom";
+import { useParams} from "react-router-dom";
+import axios from "axios";
 
-function DeleteInventory() {
+function DeleteInventory({selectedInventoryName, closeModal}) {  
+    const {id} = useParams()   
+
+    const navigate = useNavigate()
+    const baseURL = 'http://localhost:8080/inventory'
+
+    const handleDelete = (event) => {
+        event.preventDefault();
+        // axios.delete(`${baseURL}/${id}/delete`)
+        navigate('/inventory')
+        closeModal()
+    }
+
     return (
-        <>
-            <div className="transparent-background">
-                <article className="delete">
-                    <img className="delete__img" src={CloseIcon} alt="" />
-                    <div className="delete__content">
-                        <h1 className="delete__content-header">
-                            Delete "placeholder" inventory item?
-                        </h1>
-                        <p className="delete__content-message">
-                            Please confirm that you'd like to delete the "placeholder" warehouse
-                            from the list of warehouses. You won't be able to undo this action.
-                        </p>
+     
+                <article className="inventory-delete">
+                    <div className="inventory-delete__container">
+                        <Link to='/'>
+                            <img onClick={closeModal} className="inventory-delete__img" src={CloseIcon} alt="Close" />
+                        </Link>
+                        
+                        <div className="inventory-delete__content">
+                            <h1 className="inventory-delete__content-header">{`Delete ${selectedInventoryName} inventory item?`}</h1>
+                            <p className="inventory-delete__content-message">
+                                {`Please confirm that you'd like to delete ${selectedInventoryName} 
+                                from the inventory list. You won't be able to undo this action.`}
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="delete__buttons">
-                        <NavButton
-                            content="Cancel"
-                            fontColor="#13182C"
-                            backgroundColor="#FFFFFF"
-                            border="1px solid #BDC5D5"
-                        />
-                        <NavButton content="Delete" backgroundColor="#C94515" />
+                    <div className="inventory-delete__buttons">
+                        <Link  to='/' className="button-link ">
+                            <button  onClick={closeModal} className="button inventory-delete__buttons-cancel">Cancel</button>
+                        </Link>
+                        <Link className="button-link ">
+                            <button onClick={handleDelete} className="button inventory-delete__buttons-delete">Delete</button>
+                        </Link>
                     </div>
                 </article>
-            </div>
-        </>
+       
     );
 }
 

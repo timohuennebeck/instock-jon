@@ -6,7 +6,7 @@ import DeleteNotification from './components/DeleteNotification/DeleteNotificati
 import PageHeader from './components/PageHeader/PageHeader';
 import PageFooter from './components/PageFooter/PageFooter';
 import Warehouse from './pages/Warehouse/Warehouse';
-import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 import InventoryList from './pages/InventoryList/InventoryList';
 import InventoryDetail from './pages/InventoryDetail/InventoryDetail';
 import EditInventory from './pages/EditInventory/EditInventory';
@@ -25,6 +25,13 @@ function App() {
           <Route path='/' element={<Warehouse />} />
           <Route path='/warehouses' element={<Warehouse />} />
           <Route path='/inventory' element={<InventoryList />} />
+<<<<<<< HEAD
+          <Route path='/warehouse/:id' element={<WarehouseDetails />} />
+          <Route path="/warehouses/:id/delete" element={<Warehouse />}/>
+          <Route path="/warehouse/:id/edit" element={<WarehousesDetailsEdit />}/>
+          <Route path="warehouse/add" element={<WarehousesDetailsAdd />}/>
+          <Route part='inventory/:id' element={<InventoryDetail />} />
+=======
           <Route path='/warehouses/:id' element={<WarehouseDetails />} />
           <Route path="/warehouses/:id/delete" element={<Warehouse />}/>
           <Route path="/warehouses/:id/edit" element={<WarehousesDetailsEdit />}/>
@@ -32,6 +39,7 @@ function App() {
           <Route path='/inventory/:id' element={<InventoryDetail />} />
           <Route path='/inventory/add' element={<AddInventory />} />
           <Route path='/inventory/:id/edit' element={<EditInventory />} />
+>>>>>>> develop
         </Routes>
         </div>
         <PageFooter />
