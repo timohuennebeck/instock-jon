@@ -16,7 +16,7 @@ import AddInventory from './pages/AddInventory/AddInventory';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Router>
         {/* <DeleteNotification /> */}
         <PageHeader />

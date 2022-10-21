@@ -2,9 +2,23 @@ import './WarehouseCard.scss'
 import deleteIcon from '../../assets/images/icons/delete_outline-24px.svg'
 import editIcon from '../../assets/images/icons/edit-24px.svg'
 import { Link } from "react-router-dom";
+import Modal from 'react-modal';
+import { useState } from "react";
+import DeleteNotification from '../DeleteNotification/DeleteNotification';
 
 
-export default function WarehouseCard({warehouse, handleDelete}) {
+export default function WarehouseCard({warehouse}) {
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+    
+    Modal.setAppElement('.App');
     
     const address = `${warehouse.address}, ${warehouse.city}, ${warehouse.country}`
     
@@ -35,17 +49,28 @@ export default function WarehouseCard({warehouse, handleDelete}) {
                 </div>
             </div>
             <div className='warehouse-card__icons-container'>
-                <Link to={`warehouses/${warehouse.id}/delete`}>
-                    <img onClick={handleDelete} className='warehouse-card__icons'src={deleteIcon} alt='Delete Warehouse'></img>
+                <Link to={`/warehouses/${warehouse.id}/delete`}>
+                    <button className='warehouse-card__delete-container' onClick={openModal}>
+                        <img className='warehouse-card__icons'src={deleteIcon} alt='Delete Warehouse'></img>
+                    </button>
                 </Link>
                 
-                <Link to={`warehouses/${warehouse.id}/edit`}>
+                <Link to={`/warehouses/${warehouse.id}/edit`}>
                     <img className='warehouse-card__icons 'src={editIcon} alt='Edit Warehouse'></img>
                 </Link>
                 
             </div>
-            
-        
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                className="warehouse-card__modal"
+                overlayClassName= "warehouse-card__modal-overlay"
+                >
+                
+                <DeleteNotification selectedWarehouseName={warehouse.name} closeModal={closeModal}/>
+            </Modal>
+
         </div>
     )
 }
