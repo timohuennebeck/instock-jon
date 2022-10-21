@@ -15,6 +15,13 @@ export default function EditInventoryForm() {
 
     const [populateData, setPopulateData] = useState(null);
 
+    const [selected, setSelected] = useState(null);
+    console.log(selected);
+
+    const selectRadioButton = (e) => {
+        setSelected(e.target.value)
+    }
+
     const handleInputChange = (e) => {
         setPopulateData({ ...populateData, [e.target.name]: e.target.value });
     };
@@ -35,6 +42,7 @@ export default function EditInventoryForm() {
             .get(`http://localhost:8080/inventory/${id}`)
             .then((resp) => {
                 setPopulateData(resp.data);
+                setSelected(resp.data.status)
             })
             .catch((err) => {
                 console.log(err);
@@ -109,13 +117,29 @@ export default function EditInventoryForm() {
                     <div className="addform__available">
                         <h2 className="addform__title">Item Availability</h2>
                         <div>
-                            <RadioField
+                            {/* <RadioField
                                 label="Status"
                                 type="radio"
                                 name="status"
                                 errors={errors}
                                 value={populateData.status}
                                 onChange={handleInputChange}
+                            /> */}
+                            <label>In Stock</label>
+                            <input
+                                className="radio-field__value"
+                                type="radio"
+                                value="In Stock"
+                                checked={selected === "In Stock"}
+                                onClick={selectRadioButton}
+                            />
+                            <label>Out of Stock</label>
+                            <input
+                                className="radio-field__value"
+                                type="radio"
+                                value="Out of Stock"
+                                checked={selected === "Out of Stock"}
+                                onClick={selectRadioButton}
                             />
                         </div>
                         <SelectWareField
@@ -124,7 +148,6 @@ export default function EditInventoryForm() {
                             name="warehouseName"
                             errors={errors}
                             value={populateData.warehouseName}
-                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
