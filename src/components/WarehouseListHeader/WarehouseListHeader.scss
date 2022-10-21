@@ -1,34 +1,45 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/reset" as *;
 @use "../../styles/partials/variables" as *;
-
-.warehouseD__list-header {
+.warehouse__list-header {
     display: none;
-
     @include tablet {
         display: flex;
-        width: 100%;
-        padding: 0.5rem 1rem;
-        // justify-content: space-between;
-        gap: 9%;
+        gap: 30px;
+        padding: 0 2rem;
         background-color: $background-color-2;
     }
-
+    @include desktop {
+        padding: 0 2.5rem;
+        gap: calc(9vw - 80.2px);
+    }
     &-title {
         font-weight: 600;
         color: $sec-color-1;
         background-image: url('../../assets/images/icons/sort-24px.svg');
         background-repeat: no-repeat;
-        background-position: right;
-        padding-right: 1.5rem;
+        background-position: 70px;
         background-size: 15px;
-
-    }
-    &-title:nth-child(5){
-        background-image: none;
-        @include tablet {
-            padding-right: 5rem;
+        width: calc(15.625vw - 20px);
+        padding: 11px 0;
+        &--address{
+            background-position: 55px;
+                @include tablet {
+                    width: calc(23.44vw - 80px);
+                }
+        }
+        &--contact {
+            width: calc(11.72vw + 10px);
+            background-position: 85px;
+        }
+        &--info {
+            width: calc(3.906vw + 120px);
+            background-position: 130px;
+        }
+        &--actions {
+            background-image: none;
+            width: 70px;
+            text-align: end;
         }
     }
-
 }

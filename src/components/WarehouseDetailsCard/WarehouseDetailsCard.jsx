@@ -4,10 +4,24 @@ import editIcon from '../../assets/images/icons/edit-24px.svg'
 import InStock from '../InStockBtn/InStockBtn'
 import OutStock from '../OutOfStockBtn/OutOfStockBtn'
 import chevron from '../../assets/images/icons/chevron_right-24px.svg'
+import { useState } from 'react'
+import Modal from 'react-modal'
 import { Link } from 'react-router-dom'
+import DeleteInventory from '../DeleteInventory/DeleteInventory'
 
 export default function WarehouseDetailsCard({ inventoryData }) {
     console.log(inventoryData)
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+    
+    Modal.setAppElement('.App');
     return (
         <>
         {inventoryData?.map((inv)=>{
@@ -47,18 +61,30 @@ export default function WarehouseDetailsCard({ inventoryData }) {
             </div>
 
             <div className='warehouseD-card__icons-container-details'>
-                <Link to={`/inventory/${inv.id}/delete`}>
-                <img className='warehouseD-card__icons'src={deleteIcon} alt='Delete Inventory Item'></img>
-                </Link>
+                {/* <Link to={`/inventory/${inv.id}/delete`}> */}
+                    <button onClick={openModal}>
+                        <img className='warehouseD-card__icons'src={deleteIcon} alt='Delete Inventory Item'></img>
+                    </button>
+  
+                {/* </Link> */}
                 <Link to={`/inventory/${inv.id}/edit`}>
                 <img className='warehouseD-card__icons'src={editIcon} alt='Edit Inventory Item'></img>
                 </Link>
                 
             </div>
-
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                className="warehouseD-card__modal"
+                overlayClassName= "warehouseD-card__modal-overlay"
+                >
+                
+                <DeleteInventory selectedInventoryName={inv.itemName} closeModal={closeModal}/>
+            </Modal>
         </div>
             )
           })}  
+
 </>
     )
 }

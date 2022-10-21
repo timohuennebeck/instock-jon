@@ -5,12 +5,27 @@ import OutStock from "../OutOfStockBtn/OutOfStockBtn";
 import chevron from "../../assets/images/icons/chevron_right-24px.svg";
 import "./InventoryCard.scss";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Modal from "react-modal";
+import DeleteInventory from "../DeleteInventory/DeleteInventory";
 
 export default function InventoryCard({ inventoryData }) {
-  console.log(inventoryData);
-  if (!inventoryData) {
-    return <p>Loading...</p>;
-  }
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+    
+    Modal.setAppElement('.App');
+    console.log(inventoryData);
+    if (!inventoryData) {
+      return <p>Loading...</p>;
+    }
   return (
     <>
       {inventoryData?.map((inv) => {
@@ -82,6 +97,16 @@ export default function InventoryCard({ inventoryData }) {
                 ></img>
               </Link>
             </div>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                className="warehouse-card__modal"
+                overlayClassName= "warehouse-card__modal-overlay"
+                >
+                
+                <DeleteInventory selectedInventoryName={inv.itemName} closeModal={closeModal}/>
+            </Modal>
+
           </div>
         );
       })}
