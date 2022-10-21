@@ -1,5 +1,6 @@
 import './EditInventoryForm.scss';
 import { useState, useRef } from "react";
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import InputField from "../../components/InputField/InputField";
 import TextareaField from '../../components/TextareaField/TextareaField';
@@ -8,6 +9,7 @@ import SelectWareField from '../../components/SelectWareField/SelectWareField';
 import RadioField from '../../components/RadioField/RadioField';
 
 export default function EditInventoryForm() {
+    const  { id } = useParams();
     const formValues = useRef();
     const [errors, setErrors] = useState([]);
 
@@ -59,14 +61,13 @@ export default function EditInventoryForm() {
         }
 
         axios
-            .put('http://localhost:8080/inventory', editItemObj)
+            .put(`http://localhost:8080/inventory/${id}`, editItemObj)
             .then((resp) => {
                 setEditInv(editInv(resp.data));
             })
             .catch((error) => {
                 alert(error.resp.data);
         })
-
     }
 
     return (
@@ -80,6 +81,7 @@ export default function EditInventoryForm() {
                             placeholder="Item Name"
                             type='text'
                             name='name'
+                            value='hi'
                             errors={errors}
                         />
                         <TextareaField
