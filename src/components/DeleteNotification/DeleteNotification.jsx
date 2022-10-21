@@ -7,18 +7,16 @@ import axios from "axios";
 const baseURL = `http://localhost:8080/warehouses`;
 
 
-function DeleteNotification({selectedWarehouseName,id}) {  
-    
+function DeleteNotification({selectedWarehouseName, closeModal}) {  
+    const {id} = useParams()   
 
-    const handleClose = ()=>{
-        document.querySelector('.delete-warehouse').close()
-    }
     const navigate = useNavigate()
+
     const handleDelete = (event) => {
         event.preventDefault();
         axios.delete(`${baseURL}/${id}/delete`)
-        document.querySelector('.delete-warehouse').close()
         navigate('/')
+        closeModal()
     }
 
     return (
@@ -26,7 +24,7 @@ function DeleteNotification({selectedWarehouseName,id}) {
             <div >
                 <article className="warehouse-delete">
                     <Link to='/'>
-                        <img onClick={handleClose} className="warehouse-delete__img" src={CloseIcon} alt="Close" />
+                        <img onClick={closeModal} className="warehouse-delete__img" src={CloseIcon} alt="Close" />
                     </Link>
                     
                     <div className="warehouse-delete__content">
@@ -39,7 +37,7 @@ function DeleteNotification({selectedWarehouseName,id}) {
 
                     <div className="warehouse-delete__buttons">
                         <Link  to='/' className="button-link ">
-                            <button  onClick={handleClose} className="button warehouse-delete__buttons-cancel">Cancel</button>
+                            <button  onClick={closeModal} className="button warehouse-delete__buttons-cancel">Cancel</button>
                         </Link>
                         <Link className="button-link ">
                             <button onClick={handleDelete} className="button warehouse-delete__buttons-delete">Delete</button>

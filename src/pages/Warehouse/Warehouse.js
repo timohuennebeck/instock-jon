@@ -9,25 +9,18 @@ const baseURL = `http://localhost:8080/warehouses`;
 export default function Warehouse(){
     const[warehouseData, setWarehouseData] = useState([])
     // const[warehouseToEdit,setWarehouseToEdit] = useState(null)
-    const[selectedWarehouseName,setSelectedWarehouseName]=useState(null)
     const { id } = useParams();
 
-    const handleDelete = ()=> {
-        console.log(id);
-      document.querySelector('.delete-warehouse').showModal() 
-    }
-
-    
+   
 
     useEffect(() => {
         axios.get(baseURL).then((response) => {
             setWarehouseData(response.data)
             const warehouseName = warehouseData.find(warehouse=>warehouse.id ===id).name 
-            setSelectedWarehouseName(warehouseName)
             
         })
         .catch((error) => {
-            console.log(error);
+            console.log('error');
         })
     },[id])
 
@@ -38,7 +31,7 @@ export default function Warehouse(){
 
     return (
         <>
-            <WarehouseList warehouseData={warehouseData} handleDelete={handleDelete} selectedWarehouseName={selectedWarehouseName} id={id}/>
+            <WarehouseList warehouseData={warehouseData}/>
         </>
     )
 }
