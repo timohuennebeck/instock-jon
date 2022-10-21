@@ -13,38 +13,42 @@
   align-items: center;
   flex-direction: column;
   background-color: $background-color-1;
+  padding-bottom: 100px;
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
+    padding: 16px 0px 100px 0px;
   }
 
   &__logo {
     display: flex;
     padding: 16px;
     @include tablet {
-      padding: 32px;
+      padding: 16px 0px 0px 48px;
     }
     @include desktop {
-      padding: 32px 0px 32px 80px;
+      padding: 16px 0px 32px 130px;
     }
   }
   &__links-container {
     display: flex;
     justify-content: space-between;
+
   }
   &__link {
     text-decoration: none;
     color: inherit;
     @include tablet {
-      padding-right: 32px;
+      padding: 16px 16px 0px 0px;
     }
     @include desktop {
-      padding: 32px 80px 32px 0px;
+      padding: 16px 130px 0px 0px;
     }
   }
 
   &__left {
-    padding-right: 32px;
+    padding-right: 16px;
+
   }
   &__btn {
     height: 2.5rem;
