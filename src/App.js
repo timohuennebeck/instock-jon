@@ -4,6 +4,7 @@ import WarehousesDetailsEdit from './pages/WarehousesDetailsEdit/WarehousesDetai
 import WarehousesDetailsAdd from './pages/WarehouseDetailsAdd/WarehousesDetailsAdd';
 import DeleteNotification from './components/DeleteNotification/DeleteNotification';
 import PageHeader from './components/PageHeader/PageHeader';
+import PageFooter from './components/PageFooter/PageFooter';
 import Warehouse from './pages/Warehouse/Warehouse';
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
 // import InventoryList from './components/InventoryList/InventoryList';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/warehouses/add" element={<WarehousesDetailsAdd />}/>
           <Route part='/inventory/:id' element={<InventoryDetail />} />
         </Routes>
+        <PageFooter />
       </Router>
     </div>
   );

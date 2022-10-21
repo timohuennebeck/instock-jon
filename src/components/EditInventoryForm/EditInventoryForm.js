@@ -1,5 +1,5 @@
 import './EditInventoryForm.scss';
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import InputField from "../../components/InputField/InputField";
@@ -12,6 +12,8 @@ export default function EditInventoryForm() {
     const  { id } = useParams();
     const formValues = useRef();
     const [errors, setErrors] = useState([]);
+
+    const [userInput, setUserInput] = useState(null)
 
     const [editInv, setEditInv] = useState({
         id: '',
