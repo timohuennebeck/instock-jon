@@ -1,6 +1,6 @@
 import "./SelectCategoryField.scss";
 
-function SelectCategoryField({ label, placeholder, value, name, errors, type }) {
+function SelectCategoryField({ label, placeholder, value, name, errors, type, onChange }) {
     const isError = errors.indexOf(name) > -1;
 
     return (
@@ -13,6 +13,7 @@ function SelectCategoryField({ label, placeholder, value, name, errors, type }) 
                     placeholder={placeholder}
                     name={name}
                     type={type}
+                    onChange={onChange}
                 >
                     <option type="text" value=''>Please Select</option>
                     <option type='text' value='Electronics'>Electronics</option>

@@ -1,6 +1,6 @@
 import "./TextareaField.scss";
 
-function TextareaField({ label, placeholder, value, name, errors, type }) {
+function TextareaField({ label, placeholder, value, name, errors, type, onChange }) {
     const isError = errors.indexOf(name) > -1;
 
     return (
@@ -13,6 +13,7 @@ function TextareaField({ label, placeholder, value, name, errors, type }) {
                     placeholder={placeholder}
                     name={name}
                     type={type}
+                    onChange={onChange}
                 />
                 {isError && (
                     <>
