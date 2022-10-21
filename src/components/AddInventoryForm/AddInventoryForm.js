@@ -1,7 +1,7 @@
-import ErrorSign from '../../assets/images/icons/error-24px.svg';
 import './AddInventoryForm.scss';
 import { useState, useRef } from "react";
 import axios from 'axios';
+import { v4 as uuidv4 } from "uuid";
 import InputField from "../../components/InputField/InputField";
 import TextareaField from '../../components/TextareaField/TextareaField';
 import SelectField from '../../components/SelectCategoryField/SelectCategoryField';
@@ -48,24 +48,24 @@ export default function AddInventoryForm() {
         const form = event.target;
 
         const addItemObj = {
+            id: uuidv4(),
             name: form.name.value,
             description: form.description.value,
             category: form.category.value,
             status: form.status.value,
             quantity: form.quantity.value,
             warehouse: form.warehouse.value
-        }
+        };
 
-        console.log(addInv);
-        console.log(addItemObj);
+        console.log(addItemObj)
 
         axios
-            .post('http://localhost:8080/inventory', addItemObj)
+            .post('http://localhost:8080/inventory/add', addItemObj)
             .then((resp) => {
                 setAddInv(addInv(resp.data));
             })
             .catch((error) => {
-                alert(error.resp.data);
+                console.log(error, "Error!");
             })
     }
 

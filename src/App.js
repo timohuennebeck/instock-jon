@@ -20,9 +20,11 @@ function App() {
         {/* <DeleteNotification /> */}
         <PageHeader />
         <Routes>
-          {/* <Route path='/' element={<Warehouse />} />
-          <Route path='/warehouses' element={<Warehouse />} /> */}
+          <Route path='/' element={<Warehouse />} />
+          <Route path='/warehouses' element={<Warehouse />} />
           {/* <Route path='/inventory' element={<InventoryList />} /> */}
+          <Route path='/inventory/add' element={<AddInventory />} />
+          <Route path='/inventory/edit' element={<EditInventory />} />
           {/* <Route path='/warehouses/:id' element={<WarehouseDetails />} /> */}
           <Route path="warehouses/:id/edit" element={<WarehousesDetailsEdit />}/>
           <Route path="warehouses/add" element={<WarehousesDetailsAdd />}/>
