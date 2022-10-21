@@ -2,14 +2,17 @@
 @use "../../styles/partials/reset" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse__list-header {
+.warehouseD__list-header {
     display: none;
 
     @include tablet {
         display: flex;
         width: 100%;
-        padding: 0 1rem;
-        justify-content: space-between;
+        padding: 0.5 1rem;
+        // justify-content: space-between;
+        background-color: $background-color-2;
+        // gap: 30px;
+        gap: calc(15.5vw - 96px);
     }
 
     &-title {
@@ -20,10 +23,25 @@
         background-position: right;
         padding-right: 1.5rem;
         background-size: 15px;
-
-        &--action {
-            background-image: none;
+        width: 100px;
+        &--inventory{
+            width: 135px;
         }
+    }
+    &-title:nth-child(1){
+        background-position: 90px;
+    }
+    &-title:nth-child(2){
+        background-position: 55px;
+    }
+    &-title:nth-child(3){
+        background-position: 40px;
+    }
+    &-title:nth-child(4){
+        background-position: 20px;
+    }
 
+    &-title:nth-child(5){
+        background-image: none;
     }
 }

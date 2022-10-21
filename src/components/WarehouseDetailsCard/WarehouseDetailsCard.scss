@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   @include tablet {
     flex-wrap: nowrap;
+    justify-content: flex-start;
   }
   &__link{
     color: inherit;
@@ -22,14 +23,18 @@
   &__details-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 48%;
+    // justify-content: space-between;
+    gap: 30px;
+    // width: 48%;
 
     @include tablet {
       flex-direction: row;
-      justify-content:space-between;
+      // justify-content:space-between;
+      // gap: 30px;
+      gap:calc(15.5vw - 96px);
+      margin-right: calc(15.5vw - 96px);
       align-items: center;
-      width: 28%;
+      // width: 28%;
     }
   }
 
@@ -39,7 +44,11 @@
     flex-direction: column;
     @include tablet{
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
+      width: 100px;
+      &--inventory{
+        width: 135px;
+  } 
     }
 
     &--contact {
@@ -55,6 +64,7 @@
     color: $sec-color-1;
     @include tablet {
       display: none;
+ 
     }
   }
   &__name:hover{
@@ -86,12 +96,11 @@
     padding-right: 1rem;
     @include tablet {
       width: 22%;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 1rem;
     }
     @include desktop {
       width: 18%;
-      justify-content: center;
       gap: 1rem;
     }
   }

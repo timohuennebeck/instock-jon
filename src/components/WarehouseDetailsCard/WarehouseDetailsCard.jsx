@@ -15,7 +15,7 @@ export default function WarehouseDetailsCard({ inventoryData }) {
             <div className='warehouseD-card' key={inv.id}>
             <div className='warehouseD-card__details-container'>
                 
-                <div className='warehouseD-card__tile'>
+                <div className='warehouseD-card__tile warehouseD-card__tile--inventory'>
                     <p className='p-small warehouseD-card__title'>INVENTORY</p>
                     <Link className='warehouseD-card__link' to={`/inventory/${inv.id}`}>
                     <p className='p-medium warehouseD-card__content warehouseD-card__name'>{inv.itemName}</p>
