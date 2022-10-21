@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/reset" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+
+//converted support-color-1 => RGBA value
+.in-stock__btn{
+    background-color:rgba(21, 132, 99, 0.2) ;
+    color: $support-color-1;
+    border: none;
+    border-radius: 20px;
+    width: 4.125rem;
+    font-size: 11px;
+}

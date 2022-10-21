@@ -1,19 +1,18 @@
-import "./InputField.scss";
+import "./TextareaField.scss";
 
-function InputField({ label, placeholder, value, name, errors, onChange, type }) {
+function TextareaField({ label, placeholder, value, name, errors, type }) {
     const isError = errors.indexOf(name) > -1;
 
     return (
         <>
-            <div className="input-field">
-                <h3 className="input-field__label">{label}</h3>
-                <input
-                    className="input-field__value"
+            <div className="textarea-field">
+                <h3 className="textarea-field__label">{label}</h3>
+                <textarea
+                    className="textarea-field__value"
                     value={value}
                     placeholder={placeholder}
                     name={name}
                     type={type}
-                    onChange={onChange}
                 />
                 {isError && (
                     <>
@@ -28,4 +27,4 @@ function InputField({ label, placeholder, value, name, errors, onChange, type })
     );
 }
 
-export default InputField;
+export default TextareaField;

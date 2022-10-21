@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+
+.radio-field {
+    &__label,
+    &__value {
+        display: block;
+    }
+
+    &__label {
+        padding: 16px 0 4px 0;
+    }
+
+    &__status {
+        display: flex;
+        margin: 0rem 1rem;
+
+        &-container {
+            display: flex;
+            width: 50%;
+
+            // @include tablet {
+            //     width: 40%;
+            // }
+
+            // @include desktop {
+            //     width: 20%;
+            // }
+        }
+
+        &-text {
+            margin: 0rem 0.25rem;
+            color: #5C667E;
+
+            &:checked {
+                font-weight: 900;
+            }
+        }
+
+        &-radio {
+            &:checked+.editform__status-text {
+                color: black;
+            }
+        }
+    }
+
+}
+
+.error {
+    display: flex;
+    gap: 4px;
+
+    &__sign {
+        color: $prim-color-3;
+        background-color: $support-color-2;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__message {
+        color: $support-color-2;
+    }
+}
