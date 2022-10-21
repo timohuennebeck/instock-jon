@@ -1,5 +1,5 @@
-import WarehouseDetailsCard from "../WarehouseDetailsCard/WarehouseDetailsCard";
-import WarehouseDetailsHeader from "../WarehouseDetailsHeader/WarehouseDetailsHeader";
+import WarehouseDetailsCard from "../../components/WarehouseDetailsCard/WarehouseDetailsCard";
+import WarehouseDetailsHeader from "../../components/WarehouseDetailsHeader/WarehouseDetailsHeader";
 import backArrow from "../../assets/images/icons/arrow_back-24px.svg";
 import editBtn from "../../assets/images/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
