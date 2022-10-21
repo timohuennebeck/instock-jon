@@ -1,20 +1,24 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.transparent-background {
-    @include tablet {
-        background: rgba(19, 24, 44, 0.7);
-        width: 100%;
-        height: 1024px;
-    }
+// .transparent-background {
+//     @include tablet {
+//         background: rgba(19, 24, 44, 0.7);
+//         width: 100%;
+//         height: 1024px;
+//     }
 
-    @include desktop {
-        height: 925px;
-    }
-}
+//     @include desktop {
+//         height: 925px;
+//     }
+// }
+.warehouse-delete {
 
-.delete {
-    height: 667px;
+
+// // .delete {
+  
+    width: 100%;
+    height: 100%;
     padding: 60px 16px 24px;
     position: relative;
     display: flex;
@@ -24,22 +28,23 @@
 
     @include tablet {
         height: 262px;
+        width: 672px;
         padding: 40px 64px;
         border-radius: 3px;
-        position: absolute;
-        left: 6.25%;
-        right: 6.25%;
-        top: 18.07%;
-        bottom: 56.35%;
+        // position: absolute;
+    //     left: 6.25%;
+    //     right: 6.25%;
+    //     top: 18.07%;
+    //     bottom: 56.35%;
         box-shadow: 0px 2px 5px 0 rgba(19, 24, 44, 0.1);
     }
 
-    @include desktop {
-        left: 23.75%;
-        right: 23.75%;
-        top: 20%;
-        bottom: 51.68%;
-    }
+    // @include desktop {
+    //     left: 23.75%;
+    //     right: 23.75%;
+    //     top: 20%;
+    //     bottom: 51.68%;
+    // }
 
     &__img {
         width: 14px;
@@ -61,6 +66,17 @@
 
         @include tablet {
             justify-content: flex-end;
+        }
+
+        &-cancel{
+            color: #13182C;
+            background-color: #FFFFFF;
+            border: 1px solid #BDC5D5;
+
+        }
+
+        &-delete {
+            background-color: #C94515;
         }
     }
 }

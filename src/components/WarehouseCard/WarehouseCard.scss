@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/reset" as *;
-@use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/variables" as *;
+
+
 
 .warehouse-card{
     padding: 1.5rem;
@@ -119,6 +119,11 @@
 
     &__icons {
         width: 22px;
+        padding-top: 1.4rem;
+        &:hover {
+            cursor: pointer;
+        }
+
     }
 }
 
