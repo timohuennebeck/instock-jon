@@ -61,6 +61,39 @@
         }
     }
 
+    &__status {
+        display: flex;
+        margin: 0rem 1rem;
+
+        &-container {
+            display: flex;
+            width: 50%;
+
+            @include tablet {
+                width: 40%;
+            }
+
+            @include desktop {
+                width: 20%;
+            }
+        }
+
+        &-text {
+            margin: 0rem 0.25rem;
+            color: #5C667E;
+
+            &:checked {
+                font-weight: 900;
+            }
+        }
+
+        &-radio {
+            &:checked+.editform__status-text {
+                color: black;
+            }
+        }
+    }
+
     &__button {
         display: flex;
         justify-content: space-between;

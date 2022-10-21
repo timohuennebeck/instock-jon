@@ -1,12 +1,12 @@
-import ErrorSign from '../../assets/images/icons/error-24px.svg';
 import './AddInventoryForm.scss';
 import { useState, useRef } from "react";
 import axios from 'axios';
+import { v4 as uuidv4 } from "uuid";
 import InputField from "../../components/InputField/InputField";
 import TextareaField from '../../components/TextareaField/TextareaField';
 import SelectField from '../../components/SelectCategoryField/SelectCategoryField';
 import SelectWareField from '../../components/SelectWareField/SelectWareField';
-import RadioField from '../../components/RadioField/RadioField';
+// import RadioField from '../../components/RadioField/RadioField';
 
 export default function AddInventoryForm() {
     const formValues = useRef();
@@ -31,9 +31,9 @@ export default function AddInventoryForm() {
             errors.push("category");
         }
 
-        if (!formValues.current.status.value) {
-            errors.push("status");
-        }
+        // if (!formValues.current.status.value) {
+        //     errors.push("status");
+        // }
 
         if (!formValues.current.quantity.value) {
             errors.push("quantity");
@@ -48,24 +48,22 @@ export default function AddInventoryForm() {
         const form = event.target;
 
         const addItemObj = {
+            id: uuidv4(),
             name: form.name.value,
             description: form.description.value,
             category: form.category.value,
             status: form.status.value,
             quantity: form.quantity.value,
             warehouse: form.warehouse.value
-        }
-
-        console.log(addInv);
-        console.log(addItemObj);
+        };
 
         axios
             .post('http://localhost:8080/inventory', addItemObj)
             .then((resp) => {
-                setAddInv(addInv(resp.data));
+                setAddInv(resp.data);
             })
             .catch((error) => {
-                alert(error.resp.data);
+                console.log(error, "Error!");
             })
     }
 
@@ -98,14 +96,33 @@ export default function AddInventoryForm() {
                     <div className='addform__line'></div>
                     <div className='addform__available'>
                         <h2 className='addform__title'>Item Availability</h2>
-                        <div>
-                            <RadioField
+                        <label className='addform__label p-medium'>Status</label>
+                        <div className='addform__status'>
+                            <div className='addform__status-container'>
+                                <input 
+                                className='addform__status-radio' 
+                                type='radio' 
+                                name='status'
+                                value='In stock'
+                                />
+                                <p className='addform__status-text'>In stock</p>
+                            </div>
+                            <div className='addform__status-container'>
+                                <input 
+                                className='addform__status-radio' 
+                                type='radio' 
+                                name='status'
+                                value='Out of stock'
+                                />
+                                <p className='addform__status-text'>Out of stock</p>
+                            </div>
+                        </div>
+                            {/* <RadioField
                                 label='Status'
                                 type='radio'
                                 name='status'
                                 errors={errors}
-                            />
-                        </div>
+                            /> */}
                         <InputField
                             label='Quantity'
                             type='number'
