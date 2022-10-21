@@ -3,7 +3,7 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse-card {
+.warehouseD-card {
   padding: 1rem;
   padding-top: 0;
   border-top: 1px solid $sec-color-2;
@@ -77,7 +77,7 @@
     // background-size: 20px;
   }
 
-  &__icons-container {
+  &__icons-container-details {
     width: 100%;
     display: flex;
     justify-content: space-between;
