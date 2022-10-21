@@ -3,9 +3,12 @@ import WarehouseForm from "../WarehouseForm/WarehouseForm";
 import WarehouseListHeader from "../WarehouseListHeader/WarehouseListHeader";
 import "./WarehouseList.scss";
 import { Link } from "react-router-dom";
+import DeleteNotification  from '../DeleteNotification/DeleteNotification';
+import { useState } from 'react';
+import { useParams} from "react-router-dom";
 
-export default function WarehouseList({warehouseData}) {
-  // props: warehousedata
+export default function WarehouseList({warehouseData, handleDelete, selectedWarehouseName, id}) {
+
 
 
   return (
@@ -17,10 +20,11 @@ export default function WarehouseList({warehouseData}) {
       </div>
       <WarehouseListHeader />
       {warehouseData.map((warehouse) => (
-          <WarehouseCard key={warehouse.id} warehouse={warehouse}/>
+          <WarehouseCard key={warehouse.id} warehouse={warehouse} handleDelete={handleDelete} />
       ))}
-
+      <dialog className='delete-warehouse'><DeleteNotification selectedWarehouseName={selectedWarehouseName} id={id}/></dialog>
     </div>
+    
     </>
   );
 }

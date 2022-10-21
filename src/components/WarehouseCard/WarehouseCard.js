@@ -2,20 +2,12 @@ import './WarehouseCard.scss'
 import deleteIcon from '../../assets/images/icons/delete_outline-24px.svg'
 import editIcon from '../../assets/images/icons/edit-24px.svg'
 import { Link } from "react-router-dom";
-import DeleteNotification  from '../DeleteNotification/DeleteNotification';
-import { useState } from 'react';
 
-export default function WarehouseCard({warehouse}) {
-    const[deleteClicked, setDeleteClicked] = useState(false)
+
+export default function WarehouseCard({warehouse, handleDelete}) {
+    
     const address = `${warehouse.address}, ${warehouse.city}, ${warehouse.country}`
-
-    const handleDelete = ()=> {
-        setDeleteClicked(true)
-        // document.querySelector('.warehouse-card').style.zindex = '-1'
-        document.querySelector('.delete-warehouse').showModal()
-
-    }
-
+    
     return (
         <div className='warehouse-card'>
             <div className='warehouse-card__container '>
@@ -43,11 +35,16 @@ export default function WarehouseCard({warehouse}) {
                 </div>
             </div>
             <div className='warehouse-card__icons-container'>
-                <img onClick={handleDelete} className='warehouse-card__icons'src={deleteIcon} alt='Delete Warehouse'></img>
-                <img className='warehouse-card__icons'src={editIcon} alt='Edit Warehouse'></img>
+                <Link to={`warehouses/${warehouse.id}/delete`}>
+                    <img onClick={handleDelete} className='warehouse-card__icons'src={deleteIcon} alt='Delete Warehouse'></img>
+                </Link>
+                
+                <Link to={`warehouses/${warehouse.id}/edit`}>
+                    <img className='warehouse-card__icons 'src={editIcon} alt='Edit Warehouse'></img>
+                </Link>
+                
             </div>
-            {/* {deleteClicked && <DeleteNotification />} */}
-            <dialog className='delete-warehouse'><DeleteNotification /></dialog>
+            
         
         </div>
     )

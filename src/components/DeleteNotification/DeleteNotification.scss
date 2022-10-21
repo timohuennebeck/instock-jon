@@ -67,5 +67,16 @@
         @include tablet {
             justify-content: flex-end;
         }
+
+        &-cancel{
+            color: #13182C;
+            background-color: #FFFFFF;
+            border: 1px solid #BDC5D5;
+
+        }
+
+        &-delete {
+            background-color: #C94515;
+        }
     }
 }
