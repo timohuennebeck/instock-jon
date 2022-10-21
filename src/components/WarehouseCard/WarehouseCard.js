@@ -10,22 +10,6 @@ import DeleteNotification from '../DeleteNotification/DeleteNotification';
 export default function WarehouseCard({warehouse}) {
     const [modalIsOpen, setIsOpen] = useState(false);
 
-    const customStyles = {
-        overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0)"
-          },
-        
-        content: {
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-          padding: '0',
-        },
-      };
-
     function openModal() {
         setIsOpen(true);
     }
@@ -79,14 +63,9 @@ export default function WarehouseCard({warehouse}) {
 
             <Modal
                 isOpen={modalIsOpen}
-                // onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
-                style={customStyles}
-                classNames={{
-                    overlay: "warehouse-card__modal-overlay",
-                    modal: "warehouse-card__modal",
-                  }}
-                // contentLabel="Example Modal"
+                className="warehouse-card__modal"
+                overlayClassName= "warehouse-card__modal-overlay"
                 >
                 
                 <DeleteNotification selectedWarehouseName={warehouse.name} closeModal={closeModal}/>

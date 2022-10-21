@@ -20,19 +20,20 @@ function DeleteNotification({selectedWarehouseName, closeModal}) {
     }
 
     return (
-        <>
-            <div >
+     
                 <article className="warehouse-delete">
-                    <Link to='/'>
-                        <img onClick={closeModal} className="warehouse-delete__img" src={CloseIcon} alt="Close" />
-                    </Link>
-                    
-                    <div className="warehouse-delete__content">
-                        <h1 className="warehouse-delete__content-header">{`Delete ${selectedWarehouseName} warehouse?`}</h1>
-                        <p className="warehouse-delete__content-message">
-                            {`Please confirm that you'd like to delete the ${selectedWarehouseName} warehouse
-                            from the list of warehouses. You won't be able to undo this action.`}
-                        </p>
+                    <div className="warehouse-delete__container">
+                        <Link to='/'>
+                            <img onClick={closeModal} className="warehouse-delete__img" src={CloseIcon} alt="Close" />
+                        </Link>
+                        
+                        <div className="warehouse-delete__content">
+                            <h1 className="warehouse-delete__content-header">{`Delete ${selectedWarehouseName} warehouse?`}</h1>
+                            <p className="warehouse-delete__content-message">
+                                {`Please confirm that you'd like to delete the ${selectedWarehouseName} warehouse
+                                from the list of warehouses. You won't be able to undo this action.`}
+                            </p>
+                        </div>
                     </div>
 
                     <div className="warehouse-delete__buttons">
@@ -44,8 +45,7 @@ function DeleteNotification({selectedWarehouseName, closeModal}) {
                         </Link>
                     </div>
                 </article>
-            </div>
-        </>
+       
     );
 }
 
