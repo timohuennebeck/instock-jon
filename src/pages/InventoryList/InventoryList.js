@@ -17,10 +17,10 @@ export default function InventoryList() {
       });
   }, []);
  
-  if (!inventoryData) {
-    return <p> Loading... </p>;
-  }
-  console.log(inventoryData)
+  // if (!inventoryData) {
+  //   return <p> Loading... </p>;
+  // }
+  // console.log(inventoryData)
   
     return (
       <>
@@ -30,7 +30,7 @@ export default function InventoryList() {
           <InventoryForm />
         </div>
         <InventoryListHeader />
-        <InventoryCard inventoryData={inventoryData}/>
+        {inventoryData?.map((inv)=> <InventoryCard inv={inv} key={inv.id}/> )}
 
       </div>
       </>

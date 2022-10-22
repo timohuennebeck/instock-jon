@@ -2,6 +2,11 @@
 @use "../../styles/partials/reset" as *;
 @use "../../styles/partials/variables" as *;
 
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  overflow: hidden;
+}
+
 .inventory-card {
     padding: 1rem;
     padding-top: 0;
@@ -135,4 +140,35 @@
     &__icons {
       width: 22px;
     }
+    &__modal {
+      width: 100vw;
+      height: 100vh;
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      padding: 0;
+      position: absolute;
+  
+      @include tablet {
+          max-width: 500px;
+          height: auto;
+          left: 40%;
+      }
+  }
+  
+    &__modal-overlay{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+  }
+  &__delete-container{
+    background-color: transparent;
+    border: none;
+  }
   }
