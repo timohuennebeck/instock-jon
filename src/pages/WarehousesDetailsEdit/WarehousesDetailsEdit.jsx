@@ -1,5 +1,5 @@
 import "./WarehousesDetailsEdit.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import InputFieldNoError from "../../components/InputFieldNoError/InputFieldNoError";
 import NavButton from "../../components/NavButton/NavButton";
@@ -9,6 +9,8 @@ import { useParams } from "react-router-dom";
 
 function WarehousesDetailsEdit() {
     const { id } = useParams();
+
+    const navigate = useNavigate()
 
     const [userInput, setUserInput] = useState(null);
 
@@ -32,12 +34,21 @@ function WarehousesDetailsEdit() {
             .catch((err) => {
                 console.log(err, "Error!");
             });
+            
     }, []);
 
-    const newData = () => {
-        axios.put(`http://localhost:8080/warehouses/${id}`, userInput).then(() => {
+    const newData = (event) => {
+        axios.put(`http://localhost:8080/warehouses/${id}`, userInput).then((event) => {
             console.log("Data has been sent!");
+            navigate('/warehouses');
+            
         });
+
+        if (event) {
+            alert('Thanks editing warehouse!');
+        } 
+        
+
     };
 
     if (!userInput) {
@@ -48,7 +59,7 @@ function WarehousesDetailsEdit() {
         <>
             <article className="warehouse-edit">
                 <div className="warehouse-edit__header">
-                    <Link to="/warehouses/:id" className="warehouse-edit__header-link">
+                    <Link to="/warehouses/" className="warehouse-edit__header-link">
                         <img src={ArrowBack} alt="" className="warehouse-edit__header-img" />
                     </Link>
                     <h1>Edit Warehouse</h1>
@@ -121,8 +132,9 @@ function WarehousesDetailsEdit() {
                         backgroundColor="#FFFFFF"
                         fontColor="#5C667E"
                         border="1px solid #BDC5D5"
+                        link='/warehouses'
                     />
-                    <NavButton content="Save" backgroundColor="#2E66E5" onClick={newData} />
+                    <NavButton content="Save" backgroundColor="#2E66E5" onClick={newData}/>
                 </div>
             </article>
         </>

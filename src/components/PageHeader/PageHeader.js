@@ -5,9 +5,12 @@ import "./PageHeader.scss";
 export default function PageHeader() {
   return (
     <div className="Nav">
-      <div className="Nav__logo">
-        <img src={instockLogo} alt="Instock Logo" />
-      </div>
+      <Link to='/'>
+        <div className="Nav__logo">
+          <img src={instockLogo} alt="Instock Logo" />
+        </div>
+      </Link>
+      
 
       <div className="Nav__links-container">
         <Link className="Nav__link Nav__left" to='/warehouses'>

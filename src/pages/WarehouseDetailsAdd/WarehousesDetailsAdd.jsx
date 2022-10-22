@@ -1,5 +1,5 @@
 import "./WarehousesDetailsAdd.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
@@ -11,6 +11,8 @@ function WarehousesDetailsAdd() {
     const formValues = useRef();
 
     const [errors, setErrors] = useState([]);
+
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -75,22 +77,37 @@ function WarehousesDetailsAdd() {
         setErrors(errors);
 
         if (errors.length === 0) {
+            
             axios
                 .post("http://localhost:8080/warehouses/add", addWarehouseData)
-                .then(() => {
+                .then((event) => {
+                    event.preventDefault()
                     console.log("Data has been sent!");
+                    // navigate('/');
+
+                    
                 })
                 .catch((err) => {
                     console.log(err, "Error!");
                 });
         }
+        if (errors.length === 0) {
+            alert('Thanks adding warehouse!');
+            
+            navigate('/')
+
+        } 
+        
+
     };
+
+    
 
     return (
         <>
             <article className="warehouse-add" onSubmit={handleSubmit}>
                 <div className="warehouse-add__header">
-                    <Link to="/warehouses/:id" className="warehouse-add__header-link">
+                    <Link to="/warehouses/" className="warehouse-add__header-link">
                         <img src={ArrowBack} alt="" className="warehouse-add__header-img" />
                     </Link>
                     <h1>Add New Warehouse</h1>
@@ -154,11 +171,13 @@ function WarehousesDetailsAdd() {
                         backgroundColor="#FFFFFF"
                         fontColor="#5C667E"
                         border="1px solid #BDC5D5"
+                        link='/warehouses'
                     />
                     <NavButton
                         content="+ Add Warehouse"
                         backgroundColor="#2E66E5"
                         onClick={handleSubmit}
+                        
                     />
                 </div>
             </article>

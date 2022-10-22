@@ -1,28 +1,26 @@
 import WarehouseList from '../../components/WarehouseList/WarehouseList'
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams} from "react-router-dom";
-import WarehousesDetailsEdit from '../WarehousesDetailsEdit/WarehousesDetailsEdit';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
 
 const baseURL = `http://localhost:8080/warehouses`;
 
 export default function Warehouse(){
     const[warehouseData, setWarehouseData] = useState([])
-    // const[warehouseToEdit,setWarehouseToEdit] = useState(null)
-    const { id } = useParams();
-
-   
+    const {id} = useParams()
+    console.log(id);
 
     useEffect(() => {
         axios.get(baseURL).then((response) => {
             setWarehouseData(response.data)
-            const warehouseName = warehouseData.find(warehouse=>warehouse.id ===id).name 
             
         })
         .catch((error) => {
             console.log('error');
         })
-    },[id])
+    },[baseURL])
 
 
     if(!warehouseData){
@@ -31,7 +29,7 @@ export default function Warehouse(){
 
     return (
         <>
-            <WarehouseList warehouseData={warehouseData}/>
+            <WarehouseList warehouseData={warehouseData} />
         </>
     )
 }

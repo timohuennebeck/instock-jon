@@ -9,7 +9,7 @@ export default function AddInventory() {
         <>
         <div className='addinv'>
             <div className='addinv__header'>
-                <Link to='/'>
+                <Link to='/inventory'>
                     <img src={ReturnArrow} className='addinv__header-img' alt='Go back arrow' />
                 </Link>
                 <h1 className='addinv__title'>Add New Inventory Item</h1>

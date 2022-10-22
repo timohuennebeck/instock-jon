@@ -11,6 +11,7 @@
 .editform {
     display: flex;
     flex-direction: column;
+    
 
     &__container {
         @include tablet {
@@ -165,10 +166,12 @@
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
+            
 
             @include tablet {
                 width: 35%;
                 justify-content: flex-end;
+                
             }
         }
 
@@ -195,6 +198,7 @@
             border-radius: 20px;
             width: 45%;
             border: none;
+            margin-left: 1rem;
 
             @include tablet {
                 width: 30%;
