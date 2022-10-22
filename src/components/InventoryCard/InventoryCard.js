@@ -4,7 +4,7 @@ import InStock from "../InStockBtn/InStockBtn";
 import OutStock from "../OutOfStockBtn/OutOfStockBtn";
 import chevron from "../../assets/images/icons/chevron_right-24px.svg";
 import "./InventoryCard.scss";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import { useState } from "react";
 import Modal from "react-modal";
 import DeleteInventory from "../DeleteInventory/DeleteInventory";
@@ -15,9 +15,11 @@ export default function InventoryCard({ inv }) {
   function openModal() {
     setIsOpen(true);
   }
+  const navigate = useNavigate();
 
   function closeModal() {
     setIsOpen(false);
+    navigate("/inventory");
   }
 
   Modal.setAppElement(".App");
@@ -71,16 +73,20 @@ export default function InventoryCard({ inv }) {
         </div>
       </div>
       <div className="inventory-card__icons-container">
-        <button
-          className="inventory-card__delete-container"
-          onClick={openModal}
-        >
-          <img
-            className="inventory-card__icons"
-            src={deleteIcon}
-            alt="Delete Inventory Item"
-          ></img>
-        </button>
+        <Link to={`/inventory/${inv.id}/delete`}>
+          <button
+            className="inventory-card__delete-container"
+            onClick={openModal}
+            
+          >
+            <img
+              className="inventory-card__icons"
+              src={deleteIcon}
+              alt="Delete Inventory Item"
+            ></img>
+          </button>
+        </Link>
+        
 
         <Link to={`/inventory/${inv.id}/edit`}>
           <img

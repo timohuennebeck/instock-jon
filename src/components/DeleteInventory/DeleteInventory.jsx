@@ -8,14 +8,21 @@ import axios from "axios";
 function DeleteInventory({selectedInventoryName, closeModal}) {  
     const {id} = useParams()   
 
+    const reload = ()=> {
+        window.location.reload()
+    }
+
     const navigate = useNavigate()
     const baseURL = 'http://localhost:8080/inventory'
 
     const handleDelete = (event) => {
         event.preventDefault();
-        // axios.delete(`${baseURL}/${id}/delete`)
-        navigate('/inventory')
+        axios.delete(`${baseURL}/${id}/delete`)
         closeModal()
+        alert('Inventory deleted');
+        navigate('/inventory')
+        reload()
+        
     }
 
     return (
@@ -36,7 +43,7 @@ function DeleteInventory({selectedInventoryName, closeModal}) {
                     </div>
 
                     <div className="inventory-delete__buttons">
-                        <Link  to='/' className="button-link ">
+                        <Link  to='/inventory' className="button-link ">
                             <button  onClick={closeModal} className="button inventory-delete__buttons-cancel">Cancel</button>
                         </Link>
                         <Link className="button-link ">

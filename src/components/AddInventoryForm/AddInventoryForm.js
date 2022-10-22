@@ -1,5 +1,6 @@
 import './AddInventoryForm.scss';
 import { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { v4 as uuidv4 } from "uuid";
 import InputField from "../../components/InputField/InputField";
@@ -7,12 +8,15 @@ import TextareaField from '../../components/TextareaField/TextareaField';
 import SelectField from '../../components/SelectCategoryField/SelectCategoryField';
 import SelectWareField from '../../components/SelectWareField/SelectWareField';
 // import RadioField from '../../components/RadioField/RadioField';
+import NavButton from "../../components/NavButton/NavButton";
 
 export default function AddInventoryForm() {
     const formValues = useRef();
     const [addInv, setAddInv] = useState([]);
 
     const [errors, setErrors] = useState([]);
+
+    const navigate = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -49,22 +53,27 @@ export default function AddInventoryForm() {
 
         const addItemObj = {
             id: uuidv4(),
-            name: form.name.value,
+            itemName: form.name.value,
             description: form.description.value,
             category: form.category.value,
             status: form.status.value,
             quantity: form.quantity.value,
-            warehouse: form.warehouse.value
+            warehouseName: form.warehouse.value
         };
-
-        axios
+        if (errors.length === 0){
+            axios
             .post('http://localhost:8080/inventory', addItemObj)
             .then((resp) => {
                 setAddInv(resp.data);
+                alert('Thanks for adding inventory!');
+                navigate('/inventory');
             })
             .catch((error) => {
                 console.log(error, "Error!");
             })
+
+        }
+
     }
 
     return (
@@ -138,12 +147,22 @@ export default function AddInventoryForm() {
                         />
                     </div>
                 </div>
-                <div className='addform__button'>
-                    <div className='addform__button-container'>
-                        <button className='addform__button-cancel'>Cancel</button>
-                        <button className='addform__button-save'>+Add Item</button>
-                    </div>
+                
+                <div className="warehouse-edit__buttons">
+                        
+                        <NavButton
+                        content="Cancel"
+                        backgroundColor="#FFFFFF"
+                        fontColor="#5C667E"
+                        border="1px solid #BDC5D5"
+                        link='/inventory'
+                    />
+                     <NavButton content="Save" backgroundColor="#2E66E5" />
+
+                        
+            
                 </div>
+                
             </form>
         </>
     )

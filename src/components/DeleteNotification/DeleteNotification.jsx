@@ -9,14 +9,22 @@ const baseURL = `http://localhost:8080/warehouses`;
 
 function DeleteNotification({selectedWarehouseName, closeModal}) {  
     const {id} = useParams()   
+    
+
+    const reload = ()=> {
+        window.location.reload()
+    }
 
     const navigate = useNavigate()
 
     const handleDelete = (event) => {
         event.preventDefault();
         axios.delete(`${baseURL}/${id}/delete`)
-        navigate('/')
         closeModal()
+        alert('Warehouse deleted');
+        navigate('/')
+        reload()
+
     }
 
     return (

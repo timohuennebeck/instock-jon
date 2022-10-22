@@ -97,6 +97,7 @@ export default function WarehouseCard({ warehouse }) {
         <DeleteNotification
           selectedWarehouseName={warehouse.name}
           closeModal={closeModal}
+          
         />
       </Modal>
     </div>
