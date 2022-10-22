@@ -10,7 +10,7 @@ const baseURL = `http://localhost:8080/warehouses`;
 export default function Warehouse(){
     const[warehouseData, setWarehouseData] = useState([])
     const {id} = useParams()
-    console.log(id);
+   
 
     useEffect(() => {
         axios.get(baseURL).then((response) => {
