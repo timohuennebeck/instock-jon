@@ -45,7 +45,7 @@ export default function WarehouseDetails() {
               <h1 className="warehouse__header__title">{warehouse.city}</h1>
             </div>
             <div className="warehouse__edit-container">
-              <Link to={`/warehouse/${warehouse.id}/edit`}>
+              <Link to={`/warehouses/${warehouse.id}/edit`}>
                 <button className="warehouse__edit-btn">
                   <img className="warehouse__edit" src={editBtn} />
                   <p className="p-medium warehouse__hidden">Edit</p>
@@ -85,7 +85,6 @@ export default function WarehouseDetails() {
        )})}
         <WarehouseDetailsHeader />
         {inventoryData?.map((inv)=> <WarehouseDetailsCard inv={inv} key={inv.id}/> )}
-        {/* <WarehouseDetailsCard inventoryData={inventoryData} /> */}
         </div>
     </>
   );
