@@ -6,7 +6,6 @@ import InputField from "../../components/InputField/InputField";
 import TextareaField from "../../components/TextareaField/TextareaField";
 import SelectField from "../../components/SelectCategoryField/SelectCategoryField";
 import SelectWareField from "../../components/SelectWareField/SelectWareField";
-import RadioField from "../../components/RadioField/RadioField";
 import NavButton from "../../components/NavButton/NavButton";
 
 export default function EditInventoryForm() {
